@@ -1,0 +1,3971 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/caolan/nodeunit#readme"
+
+    >nodeunit (v0.11.0)</a>
+</h1>
+<h4>Easy unit testing for node.js and the browser.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit">module nodeunit</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.addListener">
+            function <span class="apidocSignatureSpan">nodeunit.</span>addListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.AssertionError">
+            function <span class="apidocSignatureSpan">nodeunit.</span>assert.AssertionError
+            <span class="apidocSignatureSpan">{{signature}}</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.complete">
+            function <span class="apidocSignatureSpan">nodeunit.</span>complete
+            <span class="apidocSignatureSpan">(name, assertions)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.done">
+            function <span class="apidocSignatureSpan">nodeunit.</span>done
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.emit">
+            function <span class="apidocSignatureSpan">nodeunit.</span>emit
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.eventNames">
+            function <span class="apidocSignatureSpan">nodeunit.</span>eventNames
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.getMaxListeners">
+            function <span class="apidocSignatureSpan">nodeunit.</span>getMaxListeners
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.listenerCount">
+            function <span class="apidocSignatureSpan">nodeunit.</span>listenerCount
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.listeners">
+            function <span class="apidocSignatureSpan">nodeunit.</span>listeners
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.on">
+            function <span class="apidocSignatureSpan">nodeunit.</span>on
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.once">
+            function <span class="apidocSignatureSpan">nodeunit.</span>once
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.prependListener">
+            function <span class="apidocSignatureSpan">nodeunit.</span>prependListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.prependOnceListener">
+            function <span class="apidocSignatureSpan">nodeunit.</span>prependOnceListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.removeAllListeners">
+            function <span class="apidocSignatureSpan">nodeunit.</span>removeAllListeners
+            <span class="apidocSignatureSpan">(type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.removeListener">
+            function <span class="apidocSignatureSpan">nodeunit.</span>removeListener
+            <span class="apidocSignatureSpan">(type, listener)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.runFiles">
+            function <span class="apidocSignatureSpan">nodeunit.</span>runFiles
+            <span class="apidocSignatureSpan">(paths, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.runModule">
+            function <span class="apidocSignatureSpan">nodeunit.</span>runModule
+            <span class="apidocSignatureSpan">(name, mod, opt, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.runModules">
+            function <span class="apidocSignatureSpan">nodeunit.</span>runModules
+            <span class="apidocSignatureSpan">(modules, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.runSuite">
+            function <span class="apidocSignatureSpan">nodeunit.</span>runSuite
+            <span class="apidocSignatureSpan">(name, suite, opt, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.runTest">
+            function <span class="apidocSignatureSpan">nodeunit.</span>runTest
+            <span class="apidocSignatureSpan">(name, fn, opt, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.setMaxListeners">
+            function <span class="apidocSignatureSpan">nodeunit.</span>setMaxListeners
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.testCase">
+            function <span class="apidocSignatureSpan">nodeunit.</span>testCase
+            <span class="apidocSignatureSpan">(suite)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>assert</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>assert.AssertionError.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>async</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>core</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>reporters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>testrunner</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>track</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>types</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nodeunit.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.assert">module nodeunit.assert</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.AssertionError">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>AssertionError
+            <span class="apidocSignatureSpan">{{signature}}</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.deepEqual">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>deepEqual
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.doesNotThrow">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>doesNotThrow
+            <span class="apidocSignatureSpan">(block, error, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.equal">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>equal
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.fail">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>fail
+            <span class="apidocSignatureSpan">(actual, expected, message, operator, stackStartFunction)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.ifError">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>ifError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.notDeepEqual">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>notDeepEqual
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.notEqual">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>notEqual
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.notStrictEqual">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>notStrictEqual
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.ok">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>ok
+            <span class="apidocSignatureSpan">(value, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.strictEqual">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>strictEqual
+            <span class="apidocSignatureSpan">(actual, expected, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.throws">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>throws
+            <span class="apidocSignatureSpan">(block, error, message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.assert.AssertionError">module nodeunit.assert.AssertionError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.AssertionError.AssertionError">
+            function <span class="apidocSignatureSpan">nodeunit.assert.</span>AssertionError
+            <span class="apidocSignatureSpan">{{signature}}</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.AssertionError.super_">
+            function <span class="apidocSignatureSpan">nodeunit.assert.AssertionError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.assert.AssertionError.prototype">module nodeunit.assert.AssertionError.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.AssertionError.prototype.constructor">
+            function <span class="apidocSignatureSpan">nodeunit.assert.AssertionError.prototype.</span>constructor
+            <span class="apidocSignatureSpan">{{signature}}</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.assert.AssertionError.prototype.toString">
+            function <span class="apidocSignatureSpan">nodeunit.assert.AssertionError.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.async">module nodeunit.async</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.all">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>all
+            <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.any">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>any
+            <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.apply">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>apply
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.auto">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>auto
+            <span class="apidocSignatureSpan">(tasks, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.concat">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>concat
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.concatSeries">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>concatSeries
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.detect">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>detect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.detectSeries">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>detectSeries
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.dir">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>dir
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.every">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>every
+            <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.filter">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>filter
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.filterSeries">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>filterSeries
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.foldl">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>foldl
+            <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.foldr">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>foldr
+            <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.forEach">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>forEach
+            <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.forEachSeries">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>forEachSeries
+            <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.inject">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>inject
+            <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.iterator">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>iterator
+            <span class="apidocSignatureSpan">(tasks)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.log">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>log
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.map">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>map
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.mapSeries">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>mapSeries
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.memoize">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>memoize
+            <span class="apidocSignatureSpan">(fn, hasher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.nextTick">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>nextTick
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.noConflict">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>noConflict
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.parallel">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>parallel
+            <span class="apidocSignatureSpan">(tasks, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.queue">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>queue
+            <span class="apidocSignatureSpan">(worker, concurrency)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.reduce">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>reduce
+            <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.reduceRight">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>reduceRight
+            <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.reject">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>reject
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.rejectSeries">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>rejectSeries
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.select">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>select
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.selectSeries">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>selectSeries
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.series">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>series
+            <span class="apidocSignatureSpan">(tasks, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.some">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>some
+            <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.sortBy">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>sortBy
+            <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.until">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>until
+            <span class="apidocSignatureSpan">(test, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.waterfall">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>waterfall
+            <span class="apidocSignatureSpan">(tasks, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.async.whilst">
+            function <span class="apidocSignatureSpan">nodeunit.async.</span>whilst
+            <span class="apidocSignatureSpan">(test, iterator, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.core">module nodeunit.core</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.core.runModule">
+            function <span class="apidocSignatureSpan">nodeunit.core.</span>runModule
+            <span class="apidocSignatureSpan">(name, mod, opt, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.core.runModules">
+            function <span class="apidocSignatureSpan">nodeunit.core.</span>runModules
+            <span class="apidocSignatureSpan">(modules, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.core.runSuite">
+            function <span class="apidocSignatureSpan">nodeunit.core.</span>runSuite
+            <span class="apidocSignatureSpan">(name, suite, opt, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.core.runTest">
+            function <span class="apidocSignatureSpan">nodeunit.core.</span>runTest
+            <span class="apidocSignatureSpan">(name, fn, opt, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.core.testCase">
+            function <span class="apidocSignatureSpan">nodeunit.core.</span>testCase
+            <span class="apidocSignatureSpan">(suite)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.testrunner">module nodeunit.testrunner</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.testrunner.run">
+            function <span class="apidocSignatureSpan">nodeunit.testrunner.</span>run
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.track">module nodeunit.track</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.track.createTracker">
+            function <span class="apidocSignatureSpan">nodeunit.track.</span>createTracker
+            <span class="apidocSignatureSpan">(on_exit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.track.default_on_exit">
+            function <span class="apidocSignatureSpan">nodeunit.track.</span>default_on_exit
+            <span class="apidocSignatureSpan">(tracker)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.types">module nodeunit.types</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.types.assertion">
+            function <span class="apidocSignatureSpan">nodeunit.types.</span>assertion
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.types.assertionList">
+            function <span class="apidocSignatureSpan">nodeunit.types.</span>assertionList
+            <span class="apidocSignatureSpan">(arr, duration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.types.options">
+            function <span class="apidocSignatureSpan">nodeunit.types.</span>options
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.types.test">
+            function <span class="apidocSignatureSpan">nodeunit.types.</span>test
+            <span class="apidocSignatureSpan">(name, start, options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit.utils">module nodeunit.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.utils.betterErrors">
+            function <span class="apidocSignatureSpan">nodeunit.utils.</span>betterErrors
+            <span class="apidocSignatureSpan">(assertion)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.utils.httputil">
+            function <span class="apidocSignatureSpan">nodeunit.utils.</span>httputil
+            <span class="apidocSignatureSpan">(cgi, envReady)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.utils.modulePaths">
+            function <span class="apidocSignatureSpan">nodeunit.utils.</span>modulePaths
+            <span class="apidocSignatureSpan">(paths, callback, recursive)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeunit.utils.sandbox">
+            function <span class="apidocSignatureSpan">nodeunit.utils.</span>sandbox
+            <span class="apidocSignatureSpan">(files, sandbox)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit" id="apidoc.module.nodeunit">module nodeunit</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.addListener" id="apidoc.element.nodeunit.addListener">
+        function <span class="apidocSignatureSpan">nodeunit.</span>addListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.AssertionError" id="apidoc.element.nodeunit.assert.AssertionError">
+        function <span class="apidocSignatureSpan">nodeunit.</span>assert.AssertionError
+        <span class="apidocSignatureSpan">{{signature}}</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AssertionError</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.complete" id="apidoc.element.nodeunit.complete">
+        function <span class="apidocSignatureSpan">nodeunit.</span>complete
+        <span class="apidocSignatureSpan">(name, assertions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">complete = function (name, assertions)
+{
+    exports.emit(&#x27;complete&#x27;, name, assertions);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   var start = new Date().getTime();
+
+   exports.runSuite(null, mod, options, function (err, a_list) {
+       var end = new Date().getTime();
+       var assertion_list = types.assertionList(a_list, end - start);
+       options.moduleDone(name, assertion_list);
+       if (nodeunit.complete) {
+           nodeunit.<span class="apidocCodeKeywordSpan">complete</span>(name, assertion_list);
+       }
+       callback(null, a_list);
+   });
+};
+
+/**
+* Treats an object literal as a list of modules keyed by name. Runs each
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.done" id="apidoc.element.nodeunit.done">
+        function <span class="apidocSignatureSpan">nodeunit.</span>done
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">done = function ()
+{
+    exports.emit(&#x27;done&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+-----
+
+Here is an example unit test module:
+
+exports.testSomething = function(test) {
+    test.expect(1);
+    test.ok(true, &#x22;this assertion should pass&#x22;);
+    test.<span class="apidocCodeKeywordSpan">done</span>();
+};
+
+exports.testSomethingElse = function(test) {
+    test.ok(false, &#x22;this assertion should fail&#x22;);
+    test.done();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.emit" id="apidoc.element.nodeunit.emit">
+        function <span class="apidocSignatureSpan">nodeunit.</span>emit
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function emit(type) {
+  var er, handler, len, args, i, events, domain;
+  var needDomainExit = false;
+  var doError = (type === &#x27;error&#x27;);
+
+  events = this._events;
+  if (events)
+    doError = (doError &#x26;&#x26; events.error == null);
+  else if (!doError)
+    return false;
+
+  domain = this.domain;
+
+  // If there is no &#x27;error&#x27; event listener then throw.
+  if (doError) {
+    er = arguments[1];
+    if (domain) {
+      if (!er)
+        er = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event&#x27;);
+      er.domainEmitter = this;
+      er.domain = domain;
+      er.domainThrown = false;
+      domain.emit(&#x27;error&#x27;, er);
+    } else if (er instanceof Error) {
+      throw er; // Unhandled &#x27;error&#x27; event
+    } else {
+      // At least give some kind of context to the user
+      var err = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event. (&#x27; + er + &#x27;)&#x27;);
+      err.context = er;
+      throw err;
+    }
+    return false;
+  }
+
+  handler = events[type];
+
+  if (!handler)
+    return false;
+
+  if (domain &#x26;&#x26; this !== process) {
+    domain.enter();
+    needDomainExit = true;
+  }
+
+  var isFn = typeof handler === &#x27;function&#x27;;
+  len = arguments.length;
+  switch (len) {
+    // fast cases
+    case 1:
+      emitNone(handler, isFn, this);
+      break;
+    case 2:
+      emitOne(handler, isFn, this, arguments[1]);
+      break;
+    case 3:
+      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
+      break;
+    case 4:
+      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
+      break;
+    // slower
+    default:
+      args = new Array(len - 1);
+      for (i = 1; i &#x3c; len; i++)
+        args[i - 1] = arguments[i];
+      emitMany(handler, isFn, this, args);
+  }
+
+  if (needDomainExit)
+    domain.exit();
+
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.eventNames" id="apidoc.element.nodeunit.eventNames">
+        function <span class="apidocSignatureSpan">nodeunit.</span>eventNames
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function eventNames() {
+  return this._eventsCount &#x3e; 0 ? Reflect.ownKeys(this._events) : [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.getMaxListeners" id="apidoc.element.nodeunit.getMaxListeners">
+        function <span class="apidocSignatureSpan">nodeunit.</span>getMaxListeners
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getMaxListeners() {
+  return $getMaxListeners(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.listenerCount" id="apidoc.element.nodeunit.listenerCount">
+        function <span class="apidocSignatureSpan">nodeunit.</span>listenerCount
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listenerCount(type) {
+  const events = this._events;
+
+  if (events) {
+    const evlistener = events[type];
+
+    if (typeof evlistener === &#x27;function&#x27;) {
+      return 1;
+    } else if (evlistener) {
+      return evlistener.length;
+    }
+  }
+
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.listeners" id="apidoc.element.nodeunit.listeners">
+        function <span class="apidocSignatureSpan">nodeunit.</span>listeners
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function listeners(type) {
+  var evlistener;
+  var ret;
+  var events = this._events;
+
+  if (!events)
+    ret = [];
+  else {
+    evlistener = events[type];
+    if (!evlistener)
+      ret = [];
+    else if (typeof evlistener === &#x27;function&#x27;)
+      ret = [evlistener];
+    else
+      ret = arrayClone(evlistener, evlistener.length);
+  }
+
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.on" id="apidoc.element.nodeunit.on">
+        function <span class="apidocSignatureSpan">nodeunit.</span>on
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            names[testname] = testname;
+        },
+        remove: function (testname) {
+            delete names[testname];
+        }
+    };
+
+    process.<span class="apidocCodeKeywordSpan">on</span>(&#x27;exit&#x27;, function() {
+        on_exit = on_exit || exports.default_on_exit;
+        on_exit(tracker);
+    });
+
+    return tracker;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.once" id="apidoc.element.nodeunit.once">
+        function <span class="apidocSignatureSpan">nodeunit.</span>once
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function once(type, listener) {
+  if (typeof listener !== &#x27;function&#x27;)
+    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  this.on(type, _onceWrap(this, type, listener));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.prependListener" id="apidoc.element.nodeunit.prependListener">
+        function <span class="apidocSignatureSpan">nodeunit.</span>prependListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function prependListener(type, listener) {
+  return _addListener(this, type, listener, true);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.prependOnceListener" id="apidoc.element.nodeunit.prependOnceListener">
+        function <span class="apidocSignatureSpan">nodeunit.</span>prependOnceListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function prependOnceListener(type, listener) {
+  if (typeof listener !== &#x27;function&#x27;)
+    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  this.prependListener(type, _onceWrap(this, type, listener));
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.removeAllListeners" id="apidoc.element.nodeunit.removeAllListeners">
+        function <span class="apidocSignatureSpan">nodeunit.</span>removeAllListeners
+        <span class="apidocSignatureSpan">(type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeAllListeners(type) {
+  var listeners, events;
+
+  events = this._events;
+  if (!events)
+    return this;
+
+  // not listening for removeListener, no need to emit
+  if (!events.removeListener) {
+    if (arguments.length === 0) {
+      this._events = new EventHandlers();
+      this._eventsCount = 0;
+    } else if (events[type]) {
+      if (--this._eventsCount === 0)
+        this._events = new EventHandlers();
+      else
+        delete events[type];
+    }
+    return this;
+  }
+
+  // emit removeListener for all listeners on all events
+  if (arguments.length === 0) {
+    var keys = Object.keys(events);
+    for (var i = 0, key; i &#x3c; keys.length; ++i) {
+      key = keys[i];
+      if (key === &#x27;removeListener&#x27;) continue;
+      this.removeAllListeners(key);
+    }
+    this.removeAllListeners(&#x27;removeListener&#x27;);
+    this._events = new EventHandlers();
+    this._eventsCount = 0;
+    return this;
+  }
+
+  listeners = events[type];
+
+  if (typeof listeners === &#x27;function&#x27;) {
+    this.removeListener(type, listeners);
+  } else if (listeners) {
+    // LIFO order
+    do {
+      this.removeListener(type, listeners[listeners.length - 1]);
+    } while (listeners[0]);
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.removeListener" id="apidoc.element.nodeunit.removeListener">
+        function <span class="apidocSignatureSpan">nodeunit.</span>removeListener
+        <span class="apidocSignatureSpan">(type, listener)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function removeListener(type, listener) {
+  var list, events, position, i, originalListener;
+
+  if (typeof listener !== &#x27;function&#x27;)
+    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+
+  events = this._events;
+  if (!events)
+    return this;
+
+  list = events[type];
+  if (!list)
+    return this;
+
+  if (list === listener || list.listener === listener) {
+    if (--this._eventsCount === 0)
+      this._events = new EventHandlers();
+    else {
+      delete events[type];
+      if (events.removeListener)
+        this.emit(&#x27;removeListener&#x27;, type, list.listener || listener);
+    }
+  } else if (typeof list !== &#x27;function&#x27;) {
+    position = -1;
+
+    for (i = list.length; i-- &#x3e; 0;) {
+      if (list[i] === listener || list[i].listener === listener) {
+        originalListener = list[i].listener;
+        position = i;
+        break;
+      }
+    }
+
+    if (position &#x3c; 0)
+      return this;
+
+    if (list.length === 1) {
+      list[0] = undefined;
+      if (--this._eventsCount === 0) {
+        this._events = new EventHandlers();
+        return this;
+      } else {
+        delete events[type];
+      }
+    } else {
+      spliceOne(list, position);
+    }
+
+    if (events.removeListener)
+      this.emit(&#x27;removeListener&#x27;, type, originalListener || listener);
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.runFiles" id="apidoc.element.nodeunit.runFiles">
+        function <span class="apidocSignatureSpan">nodeunit.</span>runFiles
+        <span class="apidocSignatureSpan">(paths, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runFiles = function (paths, opt) {
+    var all_assertions = [];
+    var options = types.options(opt);
+    var start = new Date().getTime();
+
+    if (!paths.length) {
+        return options.done(types.assertionList(all_assertions));
+    }
+
+    utils.modulePaths(paths, function (err, files) {
+        if (err) throw err;
+        async.concatSeries(files, function (file, cb) {
+            var name = path.basename(file);
+            exports.runModule(name, require(file), options, cb);
+        },
+        function (err, all_assertions) {
+            var end = new Date().getTime();
+            exports.done()
+            options.done(types.assertionList(all_assertions, end - start));
+        });
+    }, options.recursive);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.runModule" id="apidoc.element.nodeunit.runModule">
+        function <span class="apidocSignatureSpan">nodeunit.</span>runModule
+        <span class="apidocSignatureSpan">(name, mod, opt, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runModule = function (name, mod, opt, callback) {
+    var options = _copy(types.options(opt));
+
+    var _run = false;
+    var _moduleStart = options.moduleStart;
+
+    mod = wrapGroup(mod);
+
+    function run_once() {
+        if (!_run) {
+            _run = true;
+            _moduleStart(name);
+        }
+    }
+    options.moduleStart = run_once;
+
+    var start = new Date().getTime();
+
+    exports.runSuite(null, mod, options, function (err, a_list) {
+        var end = new Date().getTime();
+        var assertion_list = types.assertionList(a_list, end - start);
+        options.moduleDone(name, assertion_list);
+        if (nodeunit.complete) {
+            nodeunit.complete(name, assertion_list);
+        }
+        callback(null, a_list);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// TODO: add proper unit tests for this function
+exports.runModules = function (modules, opt) {
+    var all_assertions = [];
+    var options = types.options(opt);
+    var start = new Date().getTime();
+
+    async.concatSeries(_keys(modules), function (k, cb) {
+        exports.<span class="apidocCodeKeywordSpan">runModule</span>(k, modules[k], options, cb);
+    },
+    function (err, all_assertions) {
+        var end = new Date().getTime();
+        options.done(types.assertionList(all_assertions, end - start));
+    });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.runModules" id="apidoc.element.nodeunit.runModules">
+        function <span class="apidocSignatureSpan">nodeunit.</span>runModules
+        <span class="apidocSignatureSpan">(modules, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runModules = function (modules, opt) {
+    var all_assertions = [];
+    var options = types.options(opt);
+    var start = new Date().getTime();
+
+    async.concatSeries(_keys(modules), function (k, cb) {
+        exports.runModule(k, modules[k], options, cb);
+    },
+    function (err, all_assertions) {
+        var end = new Date().getTime();
+        options.done(types.assertionList(all_assertions, end - start));
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.runSuite" id="apidoc.element.nodeunit.runSuite">
+        function <span class="apidocSignatureSpan">nodeunit.</span>runSuite
+        <span class="apidocSignatureSpan">(name, suite, opt, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runSuite = function (name, suite, opt, callback) {
+    suite = wrapGroup(suite);
+    var keys = _keys(suite);
+
+    async.concatSeries(keys, function (k, cb) {
+        var prop = suite[k], _name;
+
+        _name = name ? [].concat(name, k) : [k];
+        _name.toString = function () {
+            // fallback for old one
+            return this.join(&#x27; - &#x27;);
+        };
+
+        if (typeof prop === &#x27;function&#x27;) {
+            var in_name = false,
+                in_specific_test = (_name.toString() === opt.testFullSpec) ? true : false;
+            for (var i = 0; i &#x3c; _name.length; i += 1) {
+                if (_name[i] === opt.testspec) {
+                    in_name = true;
+                }
+            }
+
+            if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+                if (opt.moduleStart) {
+                    opt.moduleStart();
+                }
+                exports.runTest(_name, suite[k], opt, cb);
+            }
+            else {
+                return cb();
+            }
+        }
+        else {
+            exports.runSuite(_name, suite[k], opt, cb);
+        }
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+               exports.runTest(_name, suite[k], opt, cb);
+           }
+           else {
+               return cb();
+           }
+       }
+       else {
+           exports.<span class="apidocCodeKeywordSpan">runSuite</span>(_name, suite[k], opt, cb);
+       }
+   }, callback);
+};
+
+/**
+* Run each exported test function or test suite from a loaded module.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.runTest" id="apidoc.element.nodeunit.runTest">
+        function <span class="apidocSignatureSpan">nodeunit.</span>runTest
+        <span class="apidocSignatureSpan">(name, fn, opt, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runTest = function (name, fn, opt, callback) {
+    var options = types.options(opt);
+
+    options.testStart(name);
+    var start = new Date().getTime();
+    var test = types.test(name, start, options, callback);
+
+    options.testReady(test);
+    try {
+        fn(test);
+    }
+    catch (e) {
+        test.done(e);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        }
+    }
+
+    if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+        if (opt.moduleStart) {
+            opt.moduleStart();
+        }
+        exports.<span class="apidocCodeKeywordSpan">runTest</span>(_name, suite[k], opt, cb);
+    }
+    else {
+        return cb();
+    }
+}
+else {
+    exports.runSuite(_name, suite[k], opt, cb);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.setMaxListeners" id="apidoc.element.nodeunit.setMaxListeners">
+        function <span class="apidocSignatureSpan">nodeunit.</span>setMaxListeners
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setMaxListeners(n) {
+  if (typeof n !== &#x27;number&#x27; || n &#x3c; 0 || isNaN(n))
+    throw new TypeError(&#x27;&#x22;n&#x22; argument must be a positive number&#x27;);
+  this._maxListeners = n;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.testCase" id="apidoc.element.nodeunit.testCase">
+        function <span class="apidocSignatureSpan">nodeunit.</span>testCase
+        <span class="apidocSignatureSpan">(suite)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">testCase = function (suite) {
+    return suite;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.assert" id="apidoc.module.nodeunit.assert">module nodeunit.assert</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.AssertionError" id="apidoc.element.nodeunit.assert.AssertionError">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>AssertionError
+        <span class="apidocSignatureSpan">{{signature}}</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AssertionError</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.deepEqual" id="apidoc.element.nodeunit.assert.deepEqual">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>deepEqual
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deepEqual(actual, expected, message) {
+  if (!_deepEqual(actual, expected)) {
+    fail(actual, expected, message, &#x22;deepEqual&#x22;, assert.deepEqual);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.doesNotThrow" id="apidoc.element.nodeunit.assert.doesNotThrow">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>doesNotThrow
+        <span class="apidocSignatureSpan">(block, error, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">doesNotThrow = function (block, error, message) {
+  _throws.apply(this, [false].concat(pSlice.call(arguments)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.equal" id="apidoc.element.nodeunit.assert.equal">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>equal
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function equal(actual, expected, message) {
+  if (actual != expected) fail(actual, expected, message, &#x22;==&#x22;, assert.equal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.fail" id="apidoc.element.nodeunit.assert.fail">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>fail
+        <span class="apidocSignatureSpan">(actual, expected, message, operator, stackStartFunction)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fail(actual, expected, message, operator, stackStartFunction) {
+  throw new assert.AssertionError({
+    message: message,
+    actual: actual,
+    expected: expected,
+    operator: operator,
+    stackStartFunction: stackStartFunction
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.ifError" id="apidoc.element.nodeunit.assert.ifError">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>ifError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ifError = function (err) { if (err) {throw err;}}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.notDeepEqual" id="apidoc.element.nodeunit.assert.notDeepEqual">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>notDeepEqual
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function notDeepEqual(actual, expected, message) {
+  if (_deepEqual(actual, expected)) {
+    fail(actual, expected, message, &#x22;notDeepEqual&#x22;, assert.notDeepEqual);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.notEqual" id="apidoc.element.nodeunit.assert.notEqual">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>notEqual
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function notEqual(actual, expected, message) {
+  if (actual == expected) {
+    fail(actual, expected, message, &#x22;!=&#x22;, assert.notEqual);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.notStrictEqual" id="apidoc.element.nodeunit.assert.notStrictEqual">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>notStrictEqual
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function notStrictEqual(actual, expected, message) {
+  if (actual === expected) {
+    fail(actual, expected, message, &#x22;!==&#x22;, assert.notStrictEqual);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.ok" id="apidoc.element.nodeunit.assert.ok">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>ok
+        <span class="apidocSignatureSpan">(value, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ok(value, message) {
+  if (!!!value) fail(value, true, message, &#x22;==&#x22;, assert.ok);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Usage
+-----
+
+Here is an example unit test module:
+
+exports.testSomething = function(test) {
+    test.expect(1);
+    test.<span class="apidocCodeKeywordSpan">ok</span>(true, &#x22;this assertion should pass&#x22;);
+    test.done();
+};
+
+exports.testSomethingElse = function(test) {
+    test.ok(false, &#x22;this assertion should fail&#x22;);
+    test.done();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.strictEqual" id="apidoc.element.nodeunit.assert.strictEqual">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>strictEqual
+        <span class="apidocSignatureSpan">(actual, expected, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function strictEqual(actual, expected, message) {
+  if (actual !== expected) {
+    fail(actual, expected, message, &#x22;===&#x22;, assert.strictEqual);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.throws" id="apidoc.element.nodeunit.assert.throws">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>throws
+        <span class="apidocSignatureSpan">(block, error, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">throws = function (block, error, message) {
+  _throws.apply(this, [true].concat(pSlice.call(arguments)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.assert.AssertionError" id="apidoc.module.nodeunit.assert.AssertionError">module nodeunit.assert.AssertionError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.AssertionError.AssertionError" id="apidoc.element.nodeunit.assert.AssertionError.AssertionError">
+        function <span class="apidocSignatureSpan">nodeunit.assert.</span>AssertionError
+        <span class="apidocSignatureSpan">{{signature}}</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AssertionError</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.AssertionError.super_" id="apidoc.element.nodeunit.assert.AssertionError.super_">
+        function <span class="apidocSignatureSpan">nodeunit.assert.AssertionError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.assert.AssertionError.prototype" id="apidoc.module.nodeunit.assert.AssertionError.prototype">module nodeunit.assert.AssertionError.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.AssertionError.prototype.constructor" id="apidoc.element.nodeunit.assert.AssertionError.prototype.constructor">
+        function <span class="apidocSignatureSpan">nodeunit.assert.AssertionError.prototype.</span>constructor
+        <span class="apidocSignatureSpan">{{signature}}</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AssertionError</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.assert.AssertionError.prototype.toString" id="apidoc.element.nodeunit.assert.AssertionError.prototype.toString">
+        function <span class="apidocSignatureSpan">nodeunit.assert.AssertionError.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  if (this.message) {
+    return [this.name+&#x22;:&#x22;, this.message].join(&#x27; &#x27;);
+  } else {
+    return [ this.name+&#x22;:&#x22;
+           , typeof this.expected !== &#x27;undefined&#x27; ? JSON.stringify(this.expected) : &#x27;undefined&#x27;
+           , this.operator
+           , typeof this.actual !== &#x27;undefined&#x27; ? JSON.stringify(this.actual) : &#x27;undefined&#x27;
+           ].join(&#x22; &#x22;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// sequences.
+
+    escapable.lastIndex = 0;
+    return escapable.test(string) ?
+        &#x27;&#x22;&#x27; + string.replace(escapable, function (a) {
+            var c = meta[a];
+            return typeof c === &#x27;string&#x27; ? c :
+                &#x27;\\u&#x27; + (&#x27;0000&#x27; + a.charCodeAt(0).<span class="apidocCodeKeywordSpan">toString</span>(16)).slice
+(-4);
+        }) + &#x27;&#x22;&#x27; :
+        &#x27;&#x22;&#x27; + string + &#x27;&#x22;&#x27;;
+}
+
+
+function str(key, holder) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.async" id="apidoc.module.nodeunit.async">module nodeunit.async</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.all" id="apidoc.element.nodeunit.async.all">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>all
+        <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">all = function (arr, iterator, main_callback) {
+    async.forEach(arr, function (x, callback) {
+        iterator(x, function (v) {
+            if (!v) {
+                main_callback(false);
+                main_callback = function () {};
+            }
+            callback();
+        });
+    }, function (err) {
+        main_callback(true);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.any" id="apidoc.element.nodeunit.async.any">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>any
+        <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">any = function (arr, iterator, main_callback) {
+    async.forEach(arr, function (x, callback) {
+        iterator(x, function (v) {
+            if (v) {
+                main_callback(true);
+                main_callback = function () {};
+            }
+            callback();
+        });
+    }, function (err) {
+        main_callback(false);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.apply" id="apidoc.element.nodeunit.async.apply">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>apply
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">apply = function (fn) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    return function () {
+        return fn.apply(
+            null, args.concat(Array.prototype.slice.call(arguments))
+        );
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    iterate();
+};
+
+
+var doParallel = function (fn) {
+    return function () {
+        var args = Array.prototype.slice.call(arguments);
+        return fn.<span class="apidocCodeKeywordSpan">apply</span>(null, [async.forEach].concat(args));
+    };
+};
+var doSeries = function (fn) {
+    return function () {
+        var args = Array.prototype.slice.call(arguments);
+        return fn.apply(null, [async.forEachSeries].concat(args));
+    };
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.auto" id="apidoc.element.nodeunit.async.auto">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>auto
+        <span class="apidocSignatureSpan">(tasks, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">auto = function (tasks, callback) {
+    callback = callback || function () {};
+    var keys = _keys(tasks);
+    if (!keys.length) {
+        return callback(null);
+    }
+
+    var completed = [];
+
+    var listeners = [];
+    var addListener = function (fn) {
+        listeners.unshift(fn);
+    };
+    var removeListener = function (fn) {
+        for (var i = 0; i &#x3c; listeners.length; i += 1) {
+            if (listeners[i] === fn) {
+                listeners.splice(i, 1);
+                return;
+            }
+        }
+    };
+    var taskComplete = function () {
+        _forEach(listeners, function (fn) {
+            fn();
+        });
+    };
+
+    addListener(function () {
+        if (completed.length === keys.length) {
+            callback(null);
+        }
+    });
+
+    _forEach(keys, function (k) {
+        var task = (tasks[k] instanceof Function) ? [tasks[k]]: tasks[k];
+        var taskCallback = function (err) {
+            if (err) {
+                callback(err);
+                // stop subsequent errors hitting callback multiple times
+                callback = function () {};
+            }
+            else {
+                completed.push(k);
+                taskComplete();
+            }
+        };
+        var requires = task.slice(0, Math.abs(task.length - 1)) || [];
+        var ready = function () {
+            return _reduce(requires, function (a, x) {
+                return (a &#x26;&#x26; _indexOf(completed, x) !== -1);
+            }, true);
+        };
+        if (ready()) {
+            task[task.length - 1](taskCallback);
+        }
+        else {
+            var listener = function () {
+                if (ready()) {
+                    removeListener(listener);
+                    task[task.length - 1](taskCallback);
+                }
+            };
+            addListener(listener);
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.concat" id="apidoc.element.nodeunit.async.concat">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>concat
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concat = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEach].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    iterate();
+};
+
+
+var doParallel = function (fn) {
+    return function () {
+        var args = Array.prototype.slice.call(arguments);
+        return fn.apply(null, [async.forEach].<span class="apidocCodeKeywordSpan">concat</span>(args));
+    };
+};
+var doSeries = function (fn) {
+    return function () {
+        var args = Array.prototype.slice.call(arguments);
+        return fn.apply(null, [async.forEachSeries].concat(args));
+    };
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.concatSeries" id="apidoc.element.nodeunit.async.concatSeries">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>concatSeries
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concatSeries = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEachSeries].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @api public
+ */
+
+exports.runSuite = function (name, suite, opt, callback) {
+    suite = wrapGroup(suite);
+    var keys = _keys(suite);
+
+    async.<span class="apidocCodeKeywordSpan">concatSeries</span>(keys, function (k, cb) {
+var prop = suite[k], _name;
+
+_name = name ? [].concat(name, k) : [k];
+_name.toString = function () {
+    // fallback for old one
+    return this.join(&#x27; - &#x27;);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.detect" id="apidoc.element.nodeunit.async.detect">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>detect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">detect = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEach].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.detectSeries" id="apidoc.element.nodeunit.async.detectSeries">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>detectSeries
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">detectSeries = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEachSeries].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.dir" id="apidoc.element.nodeunit.async.dir">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>dir
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dir = function (fn) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    fn.apply(null, args.concat([function (err) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        if (typeof console !== &#x27;undefined&#x27;) {
+            if (err) {
+                if (console.error) {
+                    console.error(err);
+                }
+            }
+            else if (console[name]) {
+                _forEach(args, function (x) {
+                    console[name](x);
+                });
+            }
+        }
+    }]));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.every" id="apidoc.element.nodeunit.async.every">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>every
+        <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">every = function (arr, iterator, main_callback) {
+    async.forEach(arr, function (x, callback) {
+        iterator(x, function (v) {
+            if (!v) {
+                main_callback(false);
+                main_callback = function () {};
+            }
+            callback();
+        });
+    }, function (err) {
+        main_callback(true);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.filter" id="apidoc.element.nodeunit.async.filter">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>filter
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEach].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.filterSeries" id="apidoc.element.nodeunit.async.filterSeries">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>filterSeries
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterSeries = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEachSeries].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.foldl" id="apidoc.element.nodeunit.async.foldl">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>foldl
+        <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">foldl = function (arr, memo, iterator, callback) {
+    async.forEachSeries(arr, function (x, callback) {
+        iterator(memo, x, function (err, v) {
+            memo = v;
+            callback(err);
+        });
+    }, function (err) {
+        callback(err, memo);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.foldr" id="apidoc.element.nodeunit.async.foldr">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>foldr
+        <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">foldr = function (arr, memo, iterator, callback) {
+    var reversed = _map(arr, function (x) {
+        return x;
+    }).reverse();
+    async.reduce(reversed, memo, iterator, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.forEach" id="apidoc.element.nodeunit.async.forEach">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>forEach
+        <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forEach = function (arr, iterator, callback) {
+    if (!arr.length) {
+        return callback();
+    }
+    var completed = 0;
+    _forEach(arr, function (x) {
+        iterator(x, function (err) {
+            if (err) {
+                callback(err);
+                callback = function () {};
+            }
+            else {
+                completed += 1;
+                if (completed === arr.length) {
+                    callback();
+                }
+            }
+        });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return async;
+};
+
+//// cross-browser compatiblity functions ////
+
+var _forEach = function (arr, iterator) {
+    if (arr.forEach) {
+        return arr.<span class="apidocCodeKeywordSpan">forEach</span>(iterator);
+    }
+    for (var i = 0; i &#x3c; arr.length; i += 1) {
+        iterator(arr[i], i, arr);
+    }
+};
+
+var _map = function (arr, iterator) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.forEachSeries" id="apidoc.element.nodeunit.async.forEachSeries">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>forEachSeries
+        <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">forEachSeries = function (arr, iterator, callback) {
+    if (!arr.length) {
+        return callback();
+    }
+    var completed = 0;
+    var iterate = function () {
+        iterator(arr[completed], function (err) {
+            if (err) {
+                callback(err);
+                callback = function () {};
+            }
+            else {
+                completed += 1;
+                if (completed === arr.length) {
+                    callback();
+                }
+                else {
+                    iterate();
+                }
+            }
+        });
+    };
+    iterate();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+async.map = doParallel(_asyncMap);
+async.mapSeries = doSeries(_asyncMap);
+
+
+// reduce only has a series version, as doing reduce in parallel won&#x27;t
+// work in many situations.
+async.reduce = function (arr, memo, iterator, callback) {
+    async.<span class="apidocCodeKeywordSpan">forEachSeries</span>(arr, function (x, callback) {
+        iterator(memo, x, function (err, v) {
+            memo = v;
+            callback(err);
+        });
+    }, function (err) {
+        callback(err, memo);
+    });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.inject" id="apidoc.element.nodeunit.async.inject">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>inject
+        <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inject = function (arr, memo, iterator, callback) {
+    async.forEachSeries(arr, function (x, callback) {
+        iterator(memo, x, function (err, v) {
+            memo = v;
+            callback(err);
+        });
+    }, function (err) {
+        callback(err, memo);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.iterator" id="apidoc.element.nodeunit.async.iterator">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>iterator
+        <span class="apidocSignatureSpan">(tasks)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">iterator = function (tasks) {
+    var makeCallback = function (index) {
+        var fn = function () {
+            if (tasks.length) {
+                tasks[index].apply(null, arguments);
+            }
+            return fn.next();
+        };
+        fn.next = function () {
+            return (index &#x3c; tasks.length - 1) ? makeCallback(index + 1): null;
+        };
+        return fn;
+    };
+    return makeCallback(0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                }
+                async.nextTick(function () {
+                    iterator.apply(null, args);
+                });
+            }
+        };
+    };
+    wrapIterator(async.<span class="apidocCodeKeywordSpan">iterator</span>(tasks))();
+};
+
+async.parallel = function (tasks, callback) {
+    callback = callback || function () {};
+    if (tasks.constructor === Array) {
+        async.map(tasks, function (fn, callback) {
+            if (fn) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.log" id="apidoc.element.nodeunit.async.log">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>log
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function (fn) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    fn.apply(null, args.concat([function (err) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        if (typeof console !== &#x27;undefined&#x27;) {
+            if (err) {
+                if (console.error) {
+                    console.error(err);
+                }
+            }
+            else if (console[name]) {
+                _forEach(args, function (x) {
+                    console[name](x);
+                });
+            }
+        }
+    }]));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if it&#x27;s missing:
+
+#!/usr/bin/env node
+try {
+    var reporter = require(&#x27;nodeunit&#x27;).reporters.default;
+}
+catch(e) {
+    console.<span class="apidocCodeKeywordSpan">log</span>(&#x22;Cannot find nodeunit module.&#x22;);
+    console.log(&#x22;You can download submodules for this project by doing:&#x22;);
+    console.log(&#x22;&#x22;);
+    console.log(&#x22;    git submodule init&#x22;);
+    console.log(&#x22;    git submodule update&#x22;);
+    console.log(&#x22;&#x22;);
+    process.exit();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.map" id="apidoc.element.nodeunit.async.map">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>map
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">map = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEach].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    for (var i = 0; i &#x3c; arr.length; i += 1) {
+        iterator(arr[i], i, arr);
+    }
+};
+
+var _map = function (arr, iterator) {
+    if (arr.map) {
+        return arr.<span class="apidocCodeKeywordSpan">map</span>(iterator);
+    }
+    var results = [];
+    _forEach(arr, function (x, i, a) {
+        results.push(iterator(x, i, a));
+    });
+    return results;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.mapSeries" id="apidoc.element.nodeunit.async.mapSeries">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>mapSeries
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapSeries = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEachSeries].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        });
+    }
+};
+
+async.series = function (tasks, callback) {
+    callback = callback || function () {};
+    if (tasks.constructor === Array) {
+        async.<span class="apidocCodeKeywordSpan">mapSeries</span>(tasks, function (fn, callback) {
+            if (fn) {
+                fn(function (err) {
+                    var args = Array.prototype.slice.call(arguments, 1);
+                    if (args.length &#x3c;= 1) {
+                        args = args[0];
+                    }
+                    callback.call(null, err, args || null);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.memoize" id="apidoc.element.nodeunit.async.memoize">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>memoize
+        <span class="apidocSignatureSpan">(fn, hasher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">memoize = function (fn, hasher) {
+    var memo = {};
+    hasher = hasher || function (x) {
+        return x;
+    };
+    return function () {
+        var args = Array.prototype.slice.call(arguments);
+        var callback = args.pop();
+        var key = hasher.apply(null, args);
+        if (key in memo) {
+            callback.apply(null, memo[key]);
+        }
+        else {
+            fn.apply(null, args.concat([function () {
+                memo[key] = arguments;
+                callback.apply(null, arguments);
+            }]));
+        }
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.nextTick" id="apidoc.element.nodeunit.async.nextTick">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>nextTick
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nextTick = function (fn) {
+    setImmediate(fn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                var next = iterator.next();
+                if (next) {
+                    args.push(wrapIterator(next));
+                }
+                else {
+                    args.push(callback);
+                }
+                async.<span class="apidocCodeKeywordSpan">nextTick</span>(function () {
+                    iterator.apply(null, args);
+                });
+            }
+        };
+    };
+    wrapIterator(async.iterator(tasks))();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.noConflict" id="apidoc.element.nodeunit.async.noConflict">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>noConflict
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">noConflict = function () {
+    root.async = previous_async;
+    return async;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.parallel" id="apidoc.element.nodeunit.async.parallel">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>parallel
+        <span class="apidocSignatureSpan">(tasks, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parallel = function (tasks, callback) {
+    callback = callback || function () {};
+    if (tasks.constructor === Array) {
+        async.map(tasks, function (fn, callback) {
+            if (fn) {
+                fn(function (err) {
+                    var args = Array.prototype.slice.call(arguments, 1);
+                    if (args.length &#x3c;= 1) {
+                        args = args[0];
+                    }
+                    callback.call(null, err, args || null);
+                });
+            }
+        }, callback);
+    }
+    else {
+        var results = {};
+        async.forEach(_keys(tasks), function (k, callback) {
+            tasks[k](function (err) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                if (args.length &#x3c;= 1) {
+                    args = args[0];
+                }
+                results[k] = args;
+                callback(err);
+            });
+        }, function (err) {
+            callback(err, results);
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.queue" id="apidoc.element.nodeunit.async.queue">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>queue
+        <span class="apidocSignatureSpan">(worker, concurrency)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">queue = function (worker, concurrency) {
+    var workers = 0;
+    var tasks = [];
+    var q = {
+        concurrency: concurrency,
+        push: function (data, callback) {
+            tasks.push({data: data, callback: callback});
+            async.nextTick(q.process);
+        },
+        process: function () {
+            if (workers &#x3c; q.concurrency &#x26;&#x26; tasks.length) {
+                var task = tasks.splice(0, 1)[0];
+                workers += 1;
+                worker(task.data, function () {
+                    workers -= 1;
+                    if (task.callback) {
+                        task.callback.apply(task, arguments);
+                    }
+                    q.process();
+                });
+            }
+        },
+        length: function () {
+            return tasks.length;
+        }
+    };
+    return q;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.reduce" id="apidoc.element.nodeunit.async.reduce">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>reduce
+        <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reduce = function (arr, memo, iterator, callback) {
+    async.forEachSeries(arr, function (x, callback) {
+        iterator(memo, x, function (err, v) {
+            memo = v;
+            callback(err);
+        });
+    }, function (err) {
+        callback(err, memo);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        results.push(iterator(x, i, a));
+    });
+    return results;
+};
+
+var _reduce = function (arr, iterator, memo) {
+    if (arr.reduce) {
+        return arr.<span class="apidocCodeKeywordSpan">reduce</span>(iterator, memo);
+    }
+    _forEach(arr, function (x, i, a) {
+        memo = iterator(memo, x, i, a);
+    });
+    return memo;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.reduceRight" id="apidoc.element.nodeunit.async.reduceRight">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>reduceRight
+        <span class="apidocSignatureSpan">(arr, memo, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reduceRight = function (arr, memo, iterator, callback) {
+    var reversed = _map(arr, function (x) {
+        return x;
+    }).reverse();
+    async.reduce(reversed, memo, iterator, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.reject" id="apidoc.element.nodeunit.async.reject">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>reject
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reject = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEach].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.rejectSeries" id="apidoc.element.nodeunit.async.rejectSeries">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>rejectSeries
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rejectSeries = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEachSeries].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.select" id="apidoc.element.nodeunit.async.select">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>select
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">select = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEach].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.selectSeries" id="apidoc.element.nodeunit.async.selectSeries">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>selectSeries
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">selectSeries = function () {
+    var args = Array.prototype.slice.call(arguments);
+    return fn.apply(null, [async.forEachSeries].concat(args));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.series" id="apidoc.element.nodeunit.async.series">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>series
+        <span class="apidocSignatureSpan">(tasks, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">series = function (tasks, callback) {
+    callback = callback || function () {};
+    if (tasks.constructor === Array) {
+        async.mapSeries(tasks, function (fn, callback) {
+            if (fn) {
+                fn(function (err) {
+                    var args = Array.prototype.slice.call(arguments, 1);
+                    if (args.length &#x3c;= 1) {
+                        args = args[0];
+                    }
+                    callback.call(null, err, args || null);
+                });
+            }
+        }, callback);
+    }
+    else {
+        var results = {};
+        async.forEachSeries(_keys(tasks), function (k, callback) {
+            tasks[k](function (err) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                if (args.length &#x3c;= 1) {
+                    args = args[0];
+                }
+                results[k] = args;
+                callback(err);
+            });
+        }, function (err) {
+            callback(err, results);
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       for (var i = 0, len = fns.length; i &#x3c; len; i++) {
+           (function (j) {
+               bound_fns.push(function () {
+                   return fns[j].apply(that, arguments);
+               });
+           })(i);
+       }
+       return async.<span class="apidocCodeKeywordSpan">series</span>(bound_fns, callback);
+   };
+};
+
+
+/**
+* Wraps a group of tests with setUp and tearDown functions.
+* Used by testCase.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.some" id="apidoc.element.nodeunit.async.some">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>some
+        <span class="apidocSignatureSpan">(arr, iterator, main_callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">some = function (arr, iterator, main_callback) {
+    async.forEach(arr, function (x, callback) {
+        iterator(x, function (v) {
+            if (v) {
+                main_callback(true);
+                main_callback = function () {};
+            }
+            callback();
+        });
+    }, function (err) {
+        main_callback(false);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.sortBy" id="apidoc.element.nodeunit.async.sortBy">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>sortBy
+        <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sortBy = function (arr, iterator, callback) {
+    async.map(arr, function (x, callback) {
+        iterator(x, function (err, criteria) {
+            if (err) {
+                callback(err);
+            }
+            else {
+                callback(null, {value: x, criteria: criteria});
+            }
+        });
+    }, function (err, results) {
+        if (err) {
+            return callback(err);
+        }
+        else {
+            var fn = function (left, right) {
+                var a = left.criteria, b = right.criteria;
+                return a &#x3c; b ? -1 : a &#x3e; b ? 1 : 0;
+            };
+            callback(null, _map(results.sort(fn), function (x) {
+                return x.value;
+            }));
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.until" id="apidoc.element.nodeunit.async.until">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>until
+        <span class="apidocSignatureSpan">(test, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">until = function (test, iterator, callback) {
+    if (!test()) {
+        iterator(function (err) {
+            if (err) {
+                return callback(err);
+            }
+            async.until(test, iterator, callback);
+        });
+    }
+    else {
+        callback();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+async.until = function (test, iterator, callback) {
+    if (!test()) {
+        iterator(function (err) {
+            if (err) {
+                return callback(err);
+            }
+            async.<span class="apidocCodeKeywordSpan">until</span>(test, iterator, callback);
+        });
+    }
+    else {
+        callback();
+    }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.waterfall" id="apidoc.element.nodeunit.async.waterfall">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>waterfall
+        <span class="apidocSignatureSpan">(tasks, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">waterfall = function (tasks, callback) {
+    if (!tasks.length) {
+        return callback();
+    }
+    callback = callback || function () {};
+    var wrapIterator = function (iterator) {
+        return function (err) {
+            if (err) {
+                callback(err);
+                callback = function () {};
+            }
+            else {
+                var args = Array.prototype.slice.call(arguments, 1);
+                var next = iterator.next();
+                if (next) {
+                    args.push(wrapIterator(next));
+                }
+                else {
+                    args.push(callback);
+                }
+                async.nextTick(function () {
+                    iterator.apply(null, args);
+                });
+            }
+        };
+    };
+    wrapIterator(async.iterator(tasks))();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.async.whilst" id="apidoc.element.nodeunit.async.whilst">
+        function <span class="apidocSignatureSpan">nodeunit.async.</span>whilst
+        <span class="apidocSignatureSpan">(test, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">whilst = function (test, iterator, callback) {
+    if (test()) {
+        iterator(function (err) {
+            if (err) {
+                return callback(err);
+            }
+            async.whilst(test, iterator, callback);
+        });
+    }
+    else {
+        callback();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+async.whilst = function (test, iterator, callback) {
+    if (test()) {
+        iterator(function (err) {
+            if (err) {
+                return callback(err);
+            }
+            async.<span class="apidocCodeKeywordSpan">whilst</span>(test, iterator, callback);
+        });
+    }
+    else {
+        callback();
+    }
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.core" id="apidoc.module.nodeunit.core">module nodeunit.core</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.core.runModule" id="apidoc.element.nodeunit.core.runModule">
+        function <span class="apidocSignatureSpan">nodeunit.core.</span>runModule
+        <span class="apidocSignatureSpan">(name, mod, opt, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runModule = function (name, mod, opt, callback) {
+    var options = _copy(types.options(opt));
+
+    var _run = false;
+    var _moduleStart = options.moduleStart;
+
+    mod = wrapGroup(mod);
+
+    function run_once() {
+        if (!_run) {
+            _run = true;
+            _moduleStart(name);
+        }
+    }
+    options.moduleStart = run_once;
+
+    var start = new Date().getTime();
+
+    exports.runSuite(null, mod, options, function (err, a_list) {
+        var end = new Date().getTime();
+        var assertion_list = types.assertionList(a_list, end - start);
+        options.moduleDone(name, assertion_list);
+        if (nodeunit.complete) {
+            nodeunit.complete(name, assertion_list);
+        }
+        callback(null, a_list);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// TODO: add proper unit tests for this function
+exports.runModules = function (modules, opt) {
+    var all_assertions = [];
+    var options = types.options(opt);
+    var start = new Date().getTime();
+
+    async.concatSeries(_keys(modules), function (k, cb) {
+        exports.<span class="apidocCodeKeywordSpan">runModule</span>(k, modules[k], options, cb);
+    },
+    function (err, all_assertions) {
+        var end = new Date().getTime();
+        options.done(types.assertionList(all_assertions, end - start));
+    });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.core.runModules" id="apidoc.element.nodeunit.core.runModules">
+        function <span class="apidocSignatureSpan">nodeunit.core.</span>runModules
+        <span class="apidocSignatureSpan">(modules, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runModules = function (modules, opt) {
+    var all_assertions = [];
+    var options = types.options(opt);
+    var start = new Date().getTime();
+
+    async.concatSeries(_keys(modules), function (k, cb) {
+        exports.runModule(k, modules[k], options, cb);
+    },
+    function (err, all_assertions) {
+        var end = new Date().getTime();
+        options.done(types.assertionList(all_assertions, end - start));
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.core.runSuite" id="apidoc.element.nodeunit.core.runSuite">
+        function <span class="apidocSignatureSpan">nodeunit.core.</span>runSuite
+        <span class="apidocSignatureSpan">(name, suite, opt, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runSuite = function (name, suite, opt, callback) {
+    suite = wrapGroup(suite);
+    var keys = _keys(suite);
+
+    async.concatSeries(keys, function (k, cb) {
+        var prop = suite[k], _name;
+
+        _name = name ? [].concat(name, k) : [k];
+        _name.toString = function () {
+            // fallback for old one
+            return this.join(&#x27; - &#x27;);
+        };
+
+        if (typeof prop === &#x27;function&#x27;) {
+            var in_name = false,
+                in_specific_test = (_name.toString() === opt.testFullSpec) ? true : false;
+            for (var i = 0; i &#x3c; _name.length; i += 1) {
+                if (_name[i] === opt.testspec) {
+                    in_name = true;
+                }
+            }
+
+            if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+                if (opt.moduleStart) {
+                    opt.moduleStart();
+                }
+                exports.runTest(_name, suite[k], opt, cb);
+            }
+            else {
+                return cb();
+            }
+        }
+        else {
+            exports.runSuite(_name, suite[k], opt, cb);
+        }
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+               exports.runTest(_name, suite[k], opt, cb);
+           }
+           else {
+               return cb();
+           }
+       }
+       else {
+           exports.<span class="apidocCodeKeywordSpan">runSuite</span>(_name, suite[k], opt, cb);
+       }
+   }, callback);
+};
+
+/**
+* Run each exported test function or test suite from a loaded module.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.core.runTest" id="apidoc.element.nodeunit.core.runTest">
+        function <span class="apidocSignatureSpan">nodeunit.core.</span>runTest
+        <span class="apidocSignatureSpan">(name, fn, opt, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">runTest = function (name, fn, opt, callback) {
+    var options = types.options(opt);
+
+    options.testStart(name);
+    var start = new Date().getTime();
+    var test = types.test(name, start, options, callback);
+
+    options.testReady(test);
+    try {
+        fn(test);
+    }
+    catch (e) {
+        test.done(e);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        }
+    }
+
+    if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+        if (opt.moduleStart) {
+            opt.moduleStart();
+        }
+        exports.<span class="apidocCodeKeywordSpan">runTest</span>(_name, suite[k], opt, cb);
+    }
+    else {
+        return cb();
+    }
+}
+else {
+    exports.runSuite(_name, suite[k], opt, cb);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.core.testCase" id="apidoc.element.nodeunit.core.testCase">
+        function <span class="apidocSignatureSpan">nodeunit.core.</span>testCase
+        <span class="apidocSignatureSpan">(suite)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">testCase = function (suite) {
+    return suite;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.testrunner" id="apidoc.module.nodeunit.testrunner">module nodeunit.testrunner</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.testrunner.run" id="apidoc.element.nodeunit.testrunner.run">
+        function <span class="apidocSignatureSpan">nodeunit.testrunner.</span>run
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function () {
+    console.log(
+        &#x27;WARNING: nodeunit.testrunner is going to be deprecated, please &#x27; +
+        &#x27;use nodeunit.reporters.default instead!&#x27;
+    );
+    return reporters[&#x27;default&#x27;].run.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
+    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
+    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
+  &#x3c;/head&#x3e;
+  &#x3c;body&#x3e;
+    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
+    &#x3c;script&#x3e;
+      nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
+        &#x27;Suite One&#x27;: suite1,
+        &#x27;Suite Two&#x27;: suite2
+      });
+    &#x3c;/script&#x3e;
+  &#x3c;/body&#x3e;
+&#x3c;/html&#x3e;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.track" id="apidoc.module.nodeunit.track">module nodeunit.track</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.track.createTracker" id="apidoc.element.nodeunit.track.createTracker">
+        function <span class="apidocSignatureSpan">nodeunit.track.</span>createTracker
+        <span class="apidocSignatureSpan">(on_exit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createTracker = function (on_exit) {
+    var names = {};
+    var tracker = {
+        names: function () {
+            var arr = [];
+            for (var k in names) {
+                if (names.hasOwnProperty(k)) {
+                    arr.push(k);
+                }
+            }
+            return arr;
+        },
+        unfinished: function () {
+            return tracker.names().length;
+        },
+        put: function (testname) {
+            names[testname] = testname;
+        },
+        remove: function (testname) {
+            delete names[testname];
+        }
+    };
+
+    process.on(&#x27;exit&#x27;, function() {
+        on_exit = on_exit || exports.default_on_exit;
+        on_exit(tracker);
+    });
+
+    return tracker;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.track.default_on_exit" id="apidoc.element.nodeunit.track.default_on_exit">
+        function <span class="apidocSignatureSpan">nodeunit.track.</span>default_on_exit
+        <span class="apidocSignatureSpan">(tracker)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">default_on_exit = function (tracker) {
+    if (tracker.unfinished()) {
+        console.log(&#x27;&#x27;);
+        console.log(&#x27;Undone tests (or their setups/teardowns): &#x27;);
+        var names = tracker.names();
+        for (var i = 0; i &#x3c; names.length; i += 1) {
+            console.log(names[i]);
+        }
+        process.reallyExit(tracker.unfinished());
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.types" id="apidoc.module.nodeunit.types">module nodeunit.types</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.types.assertion" id="apidoc.element.nodeunit.types.assertion">
+        function <span class="apidocSignatureSpan">nodeunit.types.</span>assertion
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assertion = function (obj) {
+    return {
+        method: obj.method || &#x27;&#x27;,
+        message: obj.message || (obj.error &#x26;&#x26; obj.error.message) || &#x27;&#x27;,
+        error: obj.error,
+        passed: function () {
+            return !this.error;
+        },
+        failed: function () {
+            return Boolean(this.error);
+        }
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if (tearDown) {
+var done = test.done;
+test.done = function (err) {
+    try {
+        tearDown.call(context, function (err2) {
+            if (err &#x26;&#x26; err2) {
+                test._assertion_list.push(
+                    types.<span class="apidocCodeKeywordSpan">assertion</span>({error: err})
+                );
+                return done(err2);
+            }
+            done(err || err2);
+        });
+    }
+    catch (e) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.types.assertionList" id="apidoc.element.nodeunit.types.assertionList">
+        function <span class="apidocSignatureSpan">nodeunit.types.</span>assertionList
+        <span class="apidocSignatureSpan">(arr, duration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assertionList = function (arr, duration) {
+    var that = arr || [];
+    that.failures = function () {
+        var failures = 0;
+        for (var i = 0; i &#x3c; this.length; i += 1) {
+            if (this[i].failed()) {
+                failures += 1;
+            }
+        }
+        return failures;
+    };
+    that.passes = function () {
+        return that.length - that.failures();
+    };
+    that.duration = duration || 0;
+    return that;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+    options.moduleStart = run_once;
+
+    var start = new Date().getTime();
+
+    exports.runSuite(null, mod, options, function (err, a_list) {
+        var end = new Date().getTime();
+        var assertion_list = types.<span class="apidocCodeKeywordSpan">assertionList</span>(a_list, end - start);
+        options.moduleDone(name, assertion_list);
+        if (nodeunit.complete) {
+            nodeunit.complete(name, assertion_list);
+        }
+        callback(null, a_list);
+    });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.types.options" id="apidoc.element.nodeunit.types.options">
+        function <span class="apidocSignatureSpan">nodeunit.types.</span>options
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">options = function (opt) {
+    var optionalCallback = function (name) {
+        opt[name] = opt[name] || function () {};
+    };
+
+    optionalCallback(&#x27;moduleStart&#x27;);
+    optionalCallback(&#x27;moduleDone&#x27;);
+    optionalCallback(&#x27;testStart&#x27;);
+    optionalCallback(&#x27;testReady&#x27;);
+    optionalCallback(&#x27;testDone&#x27;);
+    //optionalCallback(&#x27;log&#x27;);
+
+    // &#x27;done&#x27; callback is not optional.
+
+    return opt;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Function} fn
+ * @param {Object} opt
+ * @param {Function} callback
+ * @api public
+ */
+
+exports.runTest = function (name, fn, opt, callback) {
+var options = types.<span class="apidocCodeKeywordSpan">options</span>(opt);
+
+options.testStart(name);
+var start = new Date().getTime();
+var test = types.test(name, start, options, callback);
+
+options.testReady(test);
+try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.types.test" id="apidoc.element.nodeunit.types.test">
+        function <span class="apidocSignatureSpan">nodeunit.types.</span>test
+        <span class="apidocSignatureSpan">(name, start, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">test = function (name, start, options, callback) {
+    var expecting;
+    var a_list = [];
+
+    var wrapAssert = assertWrapper(function (a) {
+        a_list.push(a);
+        if (options.log) {
+            async.nextTick(function () {
+                options.log(a);
+            });
+        }
+    });
+
+    var test = {
+        done: function (err) {
+            if (expecting !== undefined &#x26;&#x26; expecting !== a_list.length) {
+                var e = new Error(
+                    &#x27;Expected &#x27; + expecting + &#x27; assertions, &#x27; +
+                    a_list.length + &#x27; ran&#x27;
+                );
+                var a1 = exports.assertion({method: &#x27;expect&#x27;, error: e});
+                a_list.push(a1);
+                if (options.log) {
+                    async.nextTick(function () {
+                        options.log(a1);
+                    });
+                }
+            }
+            if (err) {
+                var a2 = exports.assertion({error: err});
+                a_list.push(a2);
+                if (options.log) {
+                    async.nextTick(function () {
+                        options.log(a2);
+                    });
+                }
+            }
+            var end = new Date().getTime();
+            async.nextTick(function () {
+                var assertion_list = exports.assertionList(a_list, end - start);
+                options.testDone(name, assertion_list);
+                callback(null, a_list);
+            });
+        },
+        ok: wrapAssert(&#x27;ok&#x27;, &#x27;ok&#x27;, 2),
+        same: wrapAssert(&#x27;same&#x27;, &#x27;deepEqual&#x27;, 3),
+        equals: wrapAssert(&#x27;equals&#x27;, &#x27;equal&#x27;, 3),
+        expect: function (num) {
+            expecting = num;
+        },
+        _assertion_list: a_list
+    };
+    // add all functions from the assert module
+    for (var k in assert) {
+        if (assert.hasOwnProperty(k)) {
+            test[k] = wrapAssert(k, k, assert[k].length);
+        }
+    }
+    return test;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// If the string contains no control characters, no quote characters, and no
+// backslash characters, then we can safely slap some quotes around it.
+// Otherwise we must also replace the offending characters with safe escape
+// sequences.
+
+    escapable.lastIndex = 0;
+    return escapable.<span class="apidocCodeKeywordSpan">test</span>(string) ?
+        &#x27;&#x22;&#x27; + string.replace(escapable, function (a) {
+            var c = meta[a];
+            return typeof c === &#x27;string&#x27; ? c :
+                &#x27;\\u&#x27; + (&#x27;0000&#x27; + a.charCodeAt(0).toString(16)).slice(-4);
+        }) + &#x27;&#x22;&#x27; :
+        &#x27;&#x22;&#x27; + string + &#x27;&#x22;&#x27;;
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nodeunit.utils" id="apidoc.module.nodeunit.utils">module nodeunit.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.utils.betterErrors" id="apidoc.element.nodeunit.utils.betterErrors">
+        function <span class="apidocSignatureSpan">nodeunit.utils.</span>betterErrors
+        <span class="apidocSignatureSpan">(assertion)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">betterErrors = function (assertion) {
+    if (!assertion.error) {
+        return assertion;
+    }
+    var e = assertion.error;
+
+    if (typeof e.actual !== &#x27;undefined&#x27; &#x26;&#x26; typeof e.expected !== &#x27;undefined&#x27;) {
+        var actual = util.inspect(e.actual, false, 10).replace(/\n$/, &#x27;&#x27;);
+        var expected = util.inspect(e.expected, false, 10).replace(/\n$/, &#x27;&#x27;);
+
+        var multiline = (
+            actual.indexOf(&#x27;\n&#x27;) !== -1 ||
+            expected.indexOf(&#x27;\n&#x27;) !== -1
+        );
+        var spacing = (multiline ? &#x27;\n&#x27; : &#x27; &#x27;);
+        e._message = e.message;
+        e.stack = (
+            e.name + &#x27;:&#x27; + spacing +
+            actual + spacing + e.operator + spacing +
+            expected + &#x27;\n&#x27; +
+            e.stack.split(&#x27;\n&#x27;).slice(1).join(&#x27;\n&#x27;)
+        );
+    }
+    return assertion;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.utils.httputil" id="apidoc.element.nodeunit.utils.httputil">
+        function <span class="apidocSignatureSpan">nodeunit.utils.</span>httputil
+        <span class="apidocSignatureSpan">(cgi, envReady)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">httputil = function (cgi, envReady) {
+    var hostname = process.env.HOSTNAME || &#x27;localhost&#x27;;
+    var port = process.env.PORT || 3000;
+
+    var server = http.createServer(cgi);
+    server.listen(port, hostname);
+
+    var agent = new http.Agent({ host: hostname, port: port, maxSockets: 1 });
+    var client = {
+        fetch: function (method, path, headers, respReady) {
+            var request = http.request({
+                host: hostname,
+                port: port,
+                agent: agent,
+                method: method,
+                path: path,
+                headers: headers
+            });
+            request.end();
+            request.on(&#x27;response&#x27;, function (response) {
+                response.setEncoding(&#x27;utf8&#x27;);
+                response.on(&#x27;data&#x27;, function (chunk) {
+                    if (response.body) {
+                        response.body += chunk;
+                    } else {
+                        response.body = chunk;
+                    }
+                });
+                response.on(&#x27;end&#x27;, function () {
+                    if (response.headers[&#x27;content-type&#x27;] === &#x27;application/json&#x27;) {
+                        response.bodyAsObject = JSON.parse(response.body);
+                    }
+                    respReady(response);
+                });
+            });
+        }
+    };
+
+    process.nextTick(function () {
+        if (envReady &#x26;&#x26; typeof envReady === &#x27;function&#x27;) {
+            envReady(server, client);
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.utils.modulePaths" id="apidoc.element.nodeunit.utils.modulePaths">
+        function <span class="apidocSignatureSpan">nodeunit.utils.</span>modulePaths
+        <span class="apidocSignatureSpan">(paths, callback, recursive)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function modulePaths(paths, callback, recursive) {
+    recursive = (recursive === true);
+    async.concatSeries(paths, function (p, cb) {
+        fs.stat(p, function (err, stats) {
+            if (err) {
+                return cb(err);
+            }
+            if (stats.isFile()) {
+                return cb(null, [p]);
+            }
+            if (stats.isDirectory()) {
+                fs.readdir(p, function (err, files) {
+                    if (err) {
+                        return cb(err);
+                    }
+
+                    // filter out any filenames with unsupported extensions
+                    var modules = files.filter(function (filename) {
+                        return extensionPattern.exec(filename);
+                    });
+
+                    // remove extension from module name and prepend the
+                    // directory path
+                    var fullpaths = modules.map(function (filename) {
+                        var mod_name = filename.replace(extensionPattern, &#x27;&#x27;);
+                        return [p, mod_name].join(&#x27;/&#x27;);
+                    });
+
+                    if (recursive) {
+                        // get all sub directories
+                        var directories =
+                            files
+                                .map(function(filename) {
+                                    // resolve path first
+                                    return path.resolve(p, filename);
+                                })
+                                .filter(function(filename) {
+                                    // fetch only directories
+                                    return (fs.statSync(filename).isDirectory());
+                                });
+
+                        // recursively call modulePaths() with sub directories
+                        modulePaths(directories, function(err, files) {
+                            if (!err) {
+                                cb(null, fullpaths.concat(files).sort())
+                            } else {
+                                cb(err);
+                            }
+                        }, recursive);
+                    } else {
+                        // sort filenames here, because Array.map changes order
+                        fullpaths.sort();
+
+                        // finish
+                        cb(null, fullpaths);
+                    }
+
+                });
+            }
+        });
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nodeunit.utils.sandbox" id="apidoc.element.nodeunit.utils.sandbox">
+        function <span class="apidocSignatureSpan">nodeunit.utils.</span>sandbox
+        <span class="apidocSignatureSpan">(files, sandbox)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sandbox = function (files, sandbox) {
+    var source, script, result;
+    if (!(files instanceof Array)) {
+        files = [files];
+    }
+    source = files.map(function (file) {
+        return fs.readFileSync(file, &#x27;utf8&#x27;);
+    }).join(&#x27;&#x27;);
+
+    if (!sandbox) {
+        sandbox = {};
+    }
+    script = new Script(source);
+    result = script.runInNewContext(sandbox);
+    return sandbox;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
