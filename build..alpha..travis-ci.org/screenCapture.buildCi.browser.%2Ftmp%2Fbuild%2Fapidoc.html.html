@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/caolan/nodeunit#readme"
-
-    >nodeunit (v0.11.0)</a>
+    <a href="https://github.com/caolan/nodeunit#readme">nodeunit (v0.11.0)</a>
 </h1>
 <h4>Easy unit testing for node.js and the browser.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.nodeunit">module nodeunit</a><ol>
 
@@ -1559,7 +1552,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">complete = function (name, assertions)
 {
-    exports.emit(&#x27;complete&#x27;, name, assertions);
+    exports.emit('complete', name, assertions);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
    var start = new Date().getTime();
@@ -1591,7 +1584,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">done = function ()
 {
-    exports.emit(&#x27;done&#x27;);
+    exports.emit('done');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 -----
@@ -1600,12 +1593,12 @@ Here is an example unit test module:
 
 exports.testSomething = function(test) {
     test.expect(1);
-    test.ok(true, &#x22;this assertion should pass&#x22;);
+    test.ok(true, "this assertion should pass");
     test.<span class="apidocCodeKeywordSpan">done</span>();
 };
 
 exports.testSomethingElse = function(test) {
-    test.ok(false, &#x22;this assertion should fail&#x22;);
+    test.ok(false, "this assertion should fail");
     test.done();
 };
 ...</pre></li>
@@ -1623,31 +1616,31 @@ exports.testSomethingElse = function(test) {
     <li>description and source-code<pre class="apidocCodePre">function emit(type) {
   var er, handler, len, args, i, events, domain;
   var needDomainExit = false;
-  var doError = (type === &#x27;error&#x27;);
+  var doError = (type === 'error');
 
   events = this._events;
   if (events)
-    doError = (doError &#x26;&#x26; events.error == null);
+    doError = (doError &amp;&amp; events.error == null);
   else if (!doError)
     return false;
 
   domain = this.domain;
 
-  // If there is no &#x27;error&#x27; event listener then throw.
+  // If there is no 'error' event listener then throw.
   if (doError) {
     er = arguments[1];
     if (domain) {
       if (!er)
-        er = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event&#x27;);
+        er = new Error('Uncaught, unspecified "error" event');
       er.domainEmitter = this;
       er.domain = domain;
       er.domainThrown = false;
-      domain.emit(&#x27;error&#x27;, er);
+      domain.emit('error', er);
     } else if (er instanceof Error) {
-      throw er; // Unhandled &#x27;error&#x27; event
+      throw er; // Unhandled 'error' event
     } else {
       // At least give some kind of context to the user
-      var err = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event. (&#x27; + er + &#x27;)&#x27;);
+      var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
       err.context = er;
       throw err;
     }
@@ -1659,12 +1652,12 @@ exports.testSomethingElse = function(test) {
   if (!handler)
     return false;
 
-  if (domain &#x26;&#x26; this !== process) {
+  if (domain &amp;&amp; this !== process) {
     domain.enter();
     needDomainExit = true;
   }
 
-  var isFn = typeof handler === &#x27;function&#x27;;
+  var isFn = typeof handler === 'function';
   len = arguments.length;
   switch (len) {
     // fast cases
@@ -1683,7 +1676,7 @@ exports.testSomethingElse = function(test) {
     // slower
     default:
       args = new Array(len - 1);
-      for (i = 1; i &#x3c; len; i++)
+      for (i = 1; i &lt; len; i++)
         args[i - 1] = arguments[i];
       emitMany(handler, isFn, this, args);
   }
@@ -1698,16 +1691,16 @@ for (label in events.EventEmitter.prototype) {
   exports[label] = events.EventEmitter.prototype[label];
 }
 
-/* Emit event &#x27;complete&#x27; on completion of a test suite. */
+/* Emit event 'complete' on completion of a test suite. */
 exports.complete = function(name, assertions)
 {
-    exports.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;complete&#x27;, name, assertions);
+    exports.<span class="apidocCodeKeywordSpan">emit</span>('complete', name, assertions);
 };
 
-/* Emit event &#x27;complete&#x27; on completion of all tests. */
+/* Emit event 'complete' on completion of all tests. */
 exports.done = function()
 {
-    exports.emit(&#x27;done&#x27;);
+    exports.emit('done');
 };
 ...</pre></li>
     </ul>
@@ -1722,7 +1715,7 @@ exports.done = function()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function eventNames() {
-  return this._eventsCount &#x3e; 0 ? Reflect.ownKeys(this._events) : [];
+  return this._eventsCount &gt; 0 ? Reflect.ownKeys(this._events) : [];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1757,7 +1750,7 @@ exports.done = function()
   if (events) {
     const evlistener = events[type];
 
-    if (typeof evlistener === &#x27;function&#x27;) {
+    if (typeof evlistener === 'function') {
       return 1;
     } else if (evlistener) {
       return evlistener.length;
@@ -1789,7 +1782,7 @@ exports.done = function()
     evlistener = events[type];
     if (!evlistener)
       ret = [];
-    else if (typeof evlistener === &#x27;function&#x27;)
+    else if (typeof evlistener === 'function')
       ret = [evlistener];
     else
       ret = arrayClone(evlistener, evlistener.length);
@@ -1820,7 +1813,7 @@ exports.done = function()
         }
     };
 
-    process.<span class="apidocCodeKeywordSpan">on</span>(&#x27;exit&#x27;, function() {
+    process.<span class="apidocCodeKeywordSpan">on</span>('exit', function() {
         on_exit = on_exit || exports.default_on_exit;
         on_exit(tracker);
     });
@@ -1840,8 +1833,8 @@ exports.done = function()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function once(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.on(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -1873,8 +1866,8 @@ exports.done = function()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function prependOnceListener(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.prependListener(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -1914,12 +1907,12 @@ exports.done = function()
   // emit removeListener for all listeners on all events
   if (arguments.length === 0) {
     var keys = Object.keys(events);
-    for (var i = 0, key; i &#x3c; keys.length; ++i) {
+    for (var i = 0, key; i &lt; keys.length; ++i) {
       key = keys[i];
-      if (key === &#x27;removeListener&#x27;) continue;
+      if (key === 'removeListener') continue;
       this.removeAllListeners(key);
     }
-    this.removeAllListeners(&#x27;removeListener&#x27;);
+    this.removeAllListeners('removeListener');
     this._events = new EventHandlers();
     this._eventsCount = 0;
     return this;
@@ -1927,7 +1920,7 @@ exports.done = function()
 
   listeners = events[type];
 
-  if (typeof listeners === &#x27;function&#x27;) {
+  if (typeof listeners === 'function') {
     this.removeListener(type, listeners);
   } else if (listeners) {
     // LIFO order
@@ -1953,8 +1946,8 @@ exports.done = function()
     <li>description and source-code<pre class="apidocCodePre">function removeListener(type, listener) {
   var list, events, position, i, originalListener;
 
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
 
   events = this._events;
   if (!events)
@@ -1970,12 +1963,12 @@ exports.done = function()
     else {
       delete events[type];
       if (events.removeListener)
-        this.emit(&#x27;removeListener&#x27;, type, list.listener || listener);
+        this.emit('removeListener', type, list.listener || listener);
     }
-  } else if (typeof list !== &#x27;function&#x27;) {
+  } else if (typeof list !== 'function') {
     position = -1;
 
-    for (i = list.length; i-- &#x3e; 0;) {
+    for (i = list.length; i-- &gt; 0;) {
       if (list[i] === listener || list[i].listener === listener) {
         originalListener = list[i].listener;
         position = i;
@@ -1983,7 +1976,7 @@ exports.done = function()
       }
     }
 
-    if (position &#x3c; 0)
+    if (position &lt; 0)
       return this;
 
     if (list.length === 1) {
@@ -1999,7 +1992,7 @@ exports.done = function()
     }
 
     if (events.removeListener)
-      this.emit(&#x27;removeListener&#x27;, type, originalListener || listener);
+      this.emit('removeListener', type, originalListener || listener);
   }
 
   return this;
@@ -2043,7 +2036,7 @@ exports.done = function()
             tracker.put(name);
         }
     };
-	if (files &#x26;&#x26; files.length) {
+	if (files &amp;&amp; files.length) {
 	    var paths = files.map(function (p) {
 	        return path.resolve(p);
 	    });
@@ -2133,19 +2126,19 @@ exports.runModules = function (modules, opt) {
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var banner = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-banner&#x27;);
-var userAgent = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-userAgent&#x27;);
-var tests = getOrCreate(&#x27;ol&#x27;, &#x27;nodeunit-tests&#x27;);
-var result = getOrCreate(&#x27;p&#x27;, &#x27;nodeunit-testresult&#x27;);
+var banner = getOrCreate('h2', 'nodeunit-banner');
+var userAgent = getOrCreate('h2', 'nodeunit-userAgent');
+var tests = getOrCreate('ol', 'nodeunit-tests');
+var result = getOrCreate('p', 'nodeunit-testresult');
 
 setText(userAgent, navigator.userAgent);
 
 nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
     moduleStart: function (name) {
-        /*var mheading = document.createElement(&#x27;h2&#x27;);
+        /*var mheading = document.createElement('h2');
         mheading.innerText = name;
         results.appendChild(mheading);
-        module = document.createElement(&#x27;ol&#x27;);
+        module = document.createElement('ol');
         results.appendChild(module);*/
     },
 ...</pre></li>
@@ -2170,19 +2163,19 @@ nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
         _name = name ? [].concat(name, k) : [k];
         _name.toString = function () {
             // fallback for old one
-            return this.join(&#x27; - &#x27;);
+            return this.join(' - ');
         };
 
-        if (typeof prop === &#x27;function&#x27;) {
+        if (typeof prop === 'function') {
             var in_name = false,
                 in_specific_test = (_name.toString() === opt.testFullSpec) ? true : false;
-            for (var i = 0; i &#x3c; _name.length; i += 1) {
+            for (var i = 0; i &lt; _name.length; i += 1) {
                 if (_name[i] === opt.testspec) {
                     in_name = true;
                 }
             }
 
-            if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+            if ((!opt.testFullSpec || in_specific_test) &amp;&amp; (!opt.testspec || in_name)) {
                 if (opt.moduleStart) {
                     opt.moduleStart();
                 }
@@ -2244,7 +2237,7 @@ nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
         }
     }
 
-    if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+    if ((!opt.testFullSpec || in_specific_test) &amp;&amp; (!opt.testspec || in_name)) {
         if (opt.moduleStart) {
             opt.moduleStart();
         }
@@ -2269,8 +2262,8 @@ else {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function setMaxListeners(n) {
-  if (typeof n !== &#x27;number&#x27; || n &#x3c; 0 || isNaN(n))
-    throw new TypeError(&#x27;&#x22;n&#x22; argument must be a positive number&#x27;);
+  if (typeof n !== 'number' || n &lt; 0 || isNaN(n))
+    throw new TypeError('"n" argument must be a positive number');
   this._maxListeners = n;
   return this;
 }</pre></li>
@@ -2365,7 +2358,7 @@ else {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function deepEqual(actual, expected, message) {
   if (!_deepEqual(actual, expected)) {
-    fail(actual, expected, message, &#x22;deepEqual&#x22;, assert.deepEqual);
+    fail(actual, expected, message, "deepEqual", assert.deepEqual);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2396,7 +2389,7 @@ else {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function equal(actual, expected, message) {
-  if (actual != expected) fail(actual, expected, message, &#x22;==&#x22;, assert.equal);
+  if (actual != expected) fail(actual, expected, message, "==", assert.equal);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2446,7 +2439,7 @@ else {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function notDeepEqual(actual, expected, message) {
   if (_deepEqual(actual, expected)) {
-    fail(actual, expected, message, &#x22;notDeepEqual&#x22;, assert.notDeepEqual);
+    fail(actual, expected, message, "notDeepEqual", assert.notDeepEqual);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2463,7 +2456,7 @@ else {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function notEqual(actual, expected, message) {
   if (actual == expected) {
-    fail(actual, expected, message, &#x22;!=&#x22;, assert.notEqual);
+    fail(actual, expected, message, "!=", assert.notEqual);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2480,7 +2473,7 @@ else {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function notStrictEqual(actual, expected, message) {
   if (actual === expected) {
-    fail(actual, expected, message, &#x22;!==&#x22;, assert.notStrictEqual);
+    fail(actual, expected, message, "!==", assert.notStrictEqual);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2496,7 +2489,7 @@ else {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function ok(value, message) {
-  if (!!!value) fail(value, true, message, &#x22;==&#x22;, assert.ok);
+  if (!!!value) fail(value, true, message, "==", assert.ok);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 Usage
@@ -2506,12 +2499,12 @@ Here is an example unit test module:
 
 exports.testSomething = function(test) {
     test.expect(1);
-    test.<span class="apidocCodeKeywordSpan">ok</span>(true, &#x22;this assertion should pass&#x22;);
+    test.<span class="apidocCodeKeywordSpan">ok</span>(true, "this assertion should pass");
     test.done();
 };
 
 exports.testSomethingElse = function(test) {
-    test.ok(false, &#x22;this assertion should fail&#x22;);
+    test.ok(false, "this assertion should fail");
     test.done();
 };
 ...</pre></li>
@@ -2528,7 +2521,7 @@ exports.testSomethingElse = function(test) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function strictEqual(actual, expected, message) {
   if (actual !== expected) {
-    fail(actual, expected, message, &#x22;===&#x22;, assert.strictEqual);
+    fail(actual, expected, message, "===", assert.strictEqual);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -2609,13 +2602,13 @@ exports.testSomethingElse = function(test) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">toString = function () {
   if (this.message) {
-    return [this.name+&#x22;:&#x22;, this.message].join(&#x27; &#x27;);
+    return [this.name+":", this.message].join(' ');
   } else {
-    return [ this.name+&#x22;:&#x22;
-           , typeof this.expected !== &#x27;undefined&#x27; ? JSON.stringify(this.expected) : &#x27;undefined&#x27;
+    return [ this.name+":"
+           , typeof this.expected !== 'undefined' ? JSON.stringify(this.expected) : 'undefined'
            , this.operator
-           , typeof this.actual !== &#x27;undefined&#x27; ? JSON.stringify(this.actual) : &#x27;undefined&#x27;
-           ].join(&#x22; &#x22;);
+           , typeof this.actual !== 'undefined' ? JSON.stringify(this.actual) : 'undefined'
+           ].join(" ");
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -2623,13 +2616,13 @@ exports.testSomethingElse = function(test) {
 
     escapable.lastIndex = 0;
     return escapable.test(string) ?
-        &#x27;&#x22;&#x27; + string.replace(escapable, function (a) {
+        '"' + string.replace(escapable, function (a) {
             var c = meta[a];
-            return typeof c === &#x27;string&#x27; ? c :
-                &#x27;\\u&#x27; + (&#x27;0000&#x27; + a.charCodeAt(0).<span class="apidocCodeKeywordSpan">toString</span>(16)).slice
+            return typeof c === 'string' ? c :
+                '\\u' + ('0000' + a.charCodeAt(0).<span class="apidocCodeKeywordSpan">toString</span>(16)).slice
 (-4);
-        }) + &#x27;&#x22;&#x27; :
-        &#x27;&#x22;&#x27; + string + &#x27;&#x22;&#x27;;
+        }) + '"' :
+        '"' + string + '"';
 }
 
 
@@ -2751,7 +2744,7 @@ var doSeries = function (fn) {
         listeners.unshift(fn);
     };
     var removeListener = function (fn) {
-        for (var i = 0; i &#x3c; listeners.length; i += 1) {
+        for (var i = 0; i &lt; listeners.length; i += 1) {
             if (listeners[i] === fn) {
                 listeners.splice(i, 1);
                 return;
@@ -2786,7 +2779,7 @@ var doSeries = function (fn) {
         var requires = task.slice(0, Math.abs(task.length - 1)) || [];
         var ready = function () {
             return _reduce(requires, function (a, x) {
-                return (a &#x26;&#x26; _indexOf(completed, x) !== -1);
+                return (a &amp;&amp; _indexOf(completed, x) !== -1);
             }, true);
         };
         if (ready()) {
@@ -2865,7 +2858,7 @@ var prop = suite[k], _name;
 _name = name ? [].concat(name, k) : [k];
 _name.toString = function () {
     // fallback for old one
-    return this.join(&#x27; - &#x27;);
+    return this.join(' - ');
 };
 ...</pre></li>
     </ul>
@@ -2915,7 +2908,7 @@ _name.toString = function () {
     var args = Array.prototype.slice.call(arguments, 1);
     fn.apply(null, args.concat([function (err) {
         var args = Array.prototype.slice.call(arguments, 1);
-        if (typeof console !== &#x27;undefined&#x27;) {
+        if (typeof console !== 'undefined') {
             if (err) {
                 if (console.error) {
                     console.error(err);
@@ -2979,9 +2972,9 @@ assertions.forEach(function (e) {
             name: e.error.name,
             message: e.error.message,
             stack: e.error.stack.split(/\n/).<span class="apidocCodeKeywordSpan">filter</span>(function (line) {
-                // exclude line of &#x22;types.js&#x22;
+                // exclude line of "types.js"
                 return ! RegExp(/types.js:83:39/).test(line);
-            }).join(&#x27;\n&#x27;)
+            }).join('\n')
         };
         extra.wanted = e.error.expected;
         extra.found = e.error.actual;
@@ -3084,7 +3077,7 @@ var _forEach = function (arr, iterator) {
     if (arr.forEach) {
         return arr.<span class="apidocCodeKeywordSpan">forEach</span>(iterator);
     }
-    for (var i = 0; i &#x3c; arr.length; i += 1) {
+    for (var i = 0; i &lt; arr.length; i += 1) {
         iterator(arr[i], i, arr);
     }
 };
@@ -3131,7 +3124,7 @@ async.map = doParallel(_asyncMap);
 async.mapSeries = doSeries(_asyncMap);
 
 
-// reduce only has a series version, as doing reduce in parallel won&#x27;t
+// reduce only has a series version, as doing reduce in parallel won't
 // work in many situations.
 async.reduce = function (arr, memo, iterator, callback) {
     async.<span class="apidocCodeKeywordSpan">forEachSeries</span>(arr, function (x, callback) {
@@ -3185,7 +3178,7 @@ async.reduce = function (arr, memo, iterator, callback) {
             return fn.next();
         };
         fn.next = function () {
-            return (index &#x3c; tasks.length - 1) ? makeCallback(index + 1): null;
+            return (index &lt; tasks.length - 1) ? makeCallback(index + 1): null;
         };
         return fn;
     };
@@ -3223,7 +3216,7 @@ async.parallel = function (tasks, callback) {
     var args = Array.prototype.slice.call(arguments, 1);
     fn.apply(null, args.concat([function (err) {
         var args = Array.prototype.slice.call(arguments, 1);
-        if (typeof console !== &#x27;undefined&#x27;) {
+        if (typeof console !== 'undefined') {
             if (err) {
                 if (console.error) {
                     console.error(err);
@@ -3238,19 +3231,19 @@ async.parallel = function (tasks, callback) {
     }]));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-if it&#x27;s missing:
+if it's missing:
 
 #!/usr/bin/env node
 try {
-    var reporter = require(&#x27;nodeunit&#x27;).reporters.default;
+    var reporter = require('nodeunit').reporters.default;
 }
 catch(e) {
-    console.<span class="apidocCodeKeywordSpan">log</span>(&#x22;Cannot find nodeunit module.&#x22;);
-    console.log(&#x22;You can download submodules for this project by doing:&#x22;);
-    console.log(&#x22;&#x22;);
-    console.log(&#x22;    git submodule init&#x22;);
-    console.log(&#x22;    git submodule update&#x22;);
-    console.log(&#x22;&#x22;);
+    console.<span class="apidocCodeKeywordSpan">log</span>("Cannot find nodeunit module.");
+    console.log("You can download submodules for this project by doing:");
+    console.log("");
+    console.log("    git submodule init");
+    console.log("    git submodule update");
+    console.log("");
     process.exit();
 }
 ...</pre></li>
@@ -3270,7 +3263,7 @@ catch(e) {
     return fn.apply(null, [async.forEach].concat(args));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    for (var i = 0; i &#x3c; arr.length; i += 1) {
+    for (var i = 0; i &lt; arr.length; i += 1) {
         iterator(arr[i], i, arr);
     }
 };
@@ -3313,7 +3306,7 @@ async.series = function (tasks, callback) {
             if (fn) {
                 fn(function (err) {
                     var args = Array.prototype.slice.call(arguments, 1);
-                    if (args.length &#x3c;= 1) {
+                    if (args.length &lt;= 1) {
                         args = args[0];
                     }
                     callback.call(null, err, args || null);
@@ -3415,7 +3408,7 @@ async.series = function (tasks, callback) {
             if (fn) {
                 fn(function (err) {
                     var args = Array.prototype.slice.call(arguments, 1);
-                    if (args.length &#x3c;= 1) {
+                    if (args.length &lt;= 1) {
                         args = args[0];
                     }
                     callback.call(null, err, args || null);
@@ -3428,7 +3421,7 @@ async.series = function (tasks, callback) {
         async.forEach(_keys(tasks), function (k, callback) {
             tasks[k](function (err) {
                 var args = Array.prototype.slice.call(arguments, 1);
-                if (args.length &#x3c;= 1) {
+                if (args.length &lt;= 1) {
                     args = args[0];
                 }
                 results[k] = args;
@@ -3461,7 +3454,7 @@ async.series = function (tasks, callback) {
             async.nextTick(q.process);
         },
         process: function () {
-            if (workers &#x3c; q.concurrency &#x26;&#x26; tasks.length) {
+            if (workers &lt; q.concurrency &amp;&amp; tasks.length) {
                 var task = tasks.splice(0, 1)[0];
                 workers += 1;
                 worker(task.data, function () {
@@ -3617,7 +3610,7 @@ var _reduce = function (arr, iterator, memo) {
             if (fn) {
                 fn(function (err) {
                     var args = Array.prototype.slice.call(arguments, 1);
-                    if (args.length &#x3c;= 1) {
+                    if (args.length &lt;= 1) {
                         args = args[0];
                     }
                     callback.call(null, err, args || null);
@@ -3630,7 +3623,7 @@ var _reduce = function (arr, iterator, memo) {
         async.forEachSeries(_keys(tasks), function (k, callback) {
             tasks[k](function (err) {
                 var args = Array.prototype.slice.call(arguments, 1);
-                if (args.length &#x3c;= 1) {
+                if (args.length &lt;= 1) {
                     args = args[0];
                 }
                 results[k] = args;
@@ -3642,7 +3635,7 @@ var _reduce = function (arr, iterator, memo) {
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-       for (var i = 0, len = fns.length; i &#x3c; len; i++) {
+       for (var i = 0, len = fns.length; i &lt; len; i++) {
            (function (j) {
                bound_fns.push(function () {
                    return fns[j].apply(that, arguments);
@@ -3711,7 +3704,7 @@ var _reduce = function (arr, iterator, memo) {
         else {
             var fn = function (left, right) {
                 var a = left.criteria, b = right.criteria;
-                return a &#x3c; b ? -1 : a &#x3e; b ? 1 : 0;
+                return a &lt; b ? -1 : a &gt; b ? 1 : 0;
             };
             callback(null, _map(results.sort(fn), function (x) {
                 return x.value;
@@ -3864,10 +3857,10 @@ async.whilst = function (test, iterator, callback) {
     displayErrorsByDefault = options.displayErrorsByDefault;
 
     function setText(el, txt) {
-        if (&#x27;innerText&#x27; in el) {
+        if ('innerText' in el) {
             el.innerText = txt;
         }
-        else if (&#x27;textContent&#x27; in el){
+        else if ('textContent' in el){
             el.textContent = txt;
         }
     }
@@ -3882,52 +3875,52 @@ async.whilst = function (test, iterator, callback) {
         return el;
     };
 
-    var header = getOrCreate(&#x27;h1&#x27;, &#x27;nodeunit-header&#x27;);
-    var banner = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-banner&#x27;);
-    var userAgent = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-userAgent&#x27;);
-    var tests = getOrCreate(&#x27;ol&#x27;, &#x27;nodeunit-tests&#x27;);
-    var result = getOrCreate(&#x27;p&#x27;, &#x27;nodeunit-testresult&#x27;);
+    var header = getOrCreate('h1', 'nodeunit-header');
+    var banner = getOrCreate('h2', 'nodeunit-banner');
+    var userAgent = getOrCreate('h2', 'nodeunit-userAgent');
+    var tests = getOrCreate('ol', 'nodeunit-tests');
+    var result = getOrCreate('p', 'nodeunit-testresult');
 
     setText(userAgent, navigator.userAgent);
 
     nodeunit.runModules(modules, {
         moduleStart: function (name) {
-<span class="apidocCodeCommentSpan">            /*var mheading = document.createElement(&#x27;h2&#x27;);
+<span class="apidocCodeCommentSpan">            /*var mheading = document.createElement('h2');
             mheading.innerText = name;
             results.appendChild(mheading);
-            module = document.createElement(&#x27;ol&#x27;);
+            module = document.createElement('ol');
             results.appendChild(module);*/
 </span>        },
         testDone: function (name, assertions) {
-            var test = document.createElement(&#x27;li&#x27;);
-            var strong = document.createElement(&#x27;strong&#x27;);
-            strong.innerHTML = name + &#x27; &#x3c;b style=&#x22;color: black;&#x22;&#x3e;(&#x27; +
-                &#x27;&#x3c;b class=&#x22;fail&#x22;&#x3e;&#x27; + assertions.failures() + &#x27;&#x3c;/b&#x3e;, &#x27; +
-                &#x27;&#x3c;b class=&#x22;pass&#x22;&#x3e;&#x27; + assertions.passes() + &#x27;&#x3c;/b&#x3e;, &#x27; +
+            var test = document.createElement('li');
+            var strong = document.createElement('strong');
+            strong.innerHTML = name + ' &lt;b style="color: black;"&gt;(' +
+                '&lt;b class="fail"&gt;' + assertions.failures() + '&lt;/b&gt;, ' +
+                '&lt;b class="pass"&gt;' + assertions.passes() + '&lt;/b&gt;, ' +
                 assertions.length +
-            &#x27;)&#x3c;/b&#x3e;&#x27;;
-            test.className = assertions.failures() ? &#x27;fail&#x27;: &#x27;pass&#x27;;
+            ')&lt;/b&gt;';
+            test.className = assertions.failures() ? 'fail': 'pass';
             test.appendChild(strong);
 
-            var aList = document.createElement(&#x27;ol&#x27;);
-            aList.style.display = displayErrorsByDefault ? &#x27;block&#x27; : &#x27;none&#x27;;
+            var aList = document.createElement('ol');
+            aList.style.display = displayErrorsByDefault ? 'block' : 'none';
             (displayErrorsByDefault ? strong : test).onclick = function () {
                 var d = aList.style.display;
-                aList.style.display = (d == &#x27;none&#x27;) ? &#x27;block&#x27;: &#x27;none&#x27;;
+                aList.style.display = (d == 'none') ? 'block': 'none';
             };
-            for (var i=0; i&#x3c;assertions.length; i++) {
-                var li = document.createElement(&#x27;li&#x27;);
+            for (var i=0; i&lt;assertions.length; i++) {
+                var li = document.createElement('li');
                 var a = assertions[i];
                 if (a.failed()) {
-                    li.innerHTML = (a.message || a.method || &#x27;no message&#x27;) +
+                    li.innerHTML = (a.message || a.method || 'no message') +
                         (textareas ?
-                          &#x27;&#x3c;textarea rows=&#x22;20&#x22; cols=&#x22;100&#x22;&#x3e;&#x27; + (a.error.stack || a.error) + &#x27;&#x3c;/textarea&#x3e;&#x27; :
-                          &#x27;&#x3c;pre&#x3e;&#x27; + (a.error.stack || a.error) + &#x27;&#x3c;/pre&#x3e;&#x27;);
-                    li.className = &#x27;fail&#x27;;
+                          '&lt;textarea rows="20" cols="100"&gt;' + (a.error.stack || a.error) + '&lt;/textarea&gt;' :
+                          '&lt;pre&gt;' + (a.error.stack || a.error) + '&lt;/pre&gt;');
+                    li.className = 'fail';
                 }
                 else {
-                    li.innerHTML = a.message || a.method || &#x27;no message&#x27;;
-                    li.className = &#x27;pass&#x27;;
+                    li.innerHTML = a.message || a.method || 'no message';
+                    li.className = 'pass';
                 }
                 aList.appendChild(li);
             }
@@ -3939,33 +3932,33 @@ async.whilst = function (test, iterator, callback) {
             var duration = end - start;
 
             var failures = assertions.failures();
-            banner.className = failures ? &#x27;fail&#x27;: &#x27;pass&#x27;;
+            banner.className = failures ? 'fail': 'pass';
 
-            result.innerHTML = &#x27;Tests completed in &#x27; + duration +
-                &#x27; milliseconds.&#x3c;br/&#x3e;&#x3c;span class=&#x22;passed&#x22;&#x3e;&#x27; +
-                assertions.passes() + &#x27;&#x3c;/span&#x3e; assertions of &#x27; +
-                &#x27;&#x3c;span class=&#x22;all&#x22;&#x3e;&#x27; + assertions.length + &#x27;&#x3c;span&#x3e; passed, &#x27; +
-                assertions.failures() + &#x27; failed.&#x27;;
+            result.innerHTML = 'Tests completed in ' + duration +
+                ' milliseconds.&lt;br/&gt;&lt;span class="passed"&gt;' +
+                assertions.passes() + '&lt;/span&gt; assertions of ' +
+                '&lt;span class="all"&gt;' + assertions.length + '&lt;span&gt; passed, ' +
+                assertions.failures() + ' failed.';
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         }
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -4054,19 +4047,19 @@ exports.runModules = function (modules, opt) {
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var banner = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-banner&#x27;);
-var userAgent = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-userAgent&#x27;);
-var tests = getOrCreate(&#x27;ol&#x27;, &#x27;nodeunit-tests&#x27;);
-var result = getOrCreate(&#x27;p&#x27;, &#x27;nodeunit-testresult&#x27;);
+var banner = getOrCreate('h2', 'nodeunit-banner');
+var userAgent = getOrCreate('h2', 'nodeunit-userAgent');
+var tests = getOrCreate('ol', 'nodeunit-tests');
+var result = getOrCreate('p', 'nodeunit-testresult');
 
 setText(userAgent, navigator.userAgent);
 
 nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
     moduleStart: function (name) {
-        /*var mheading = document.createElement(&#x27;h2&#x27;);
+        /*var mheading = document.createElement('h2');
         mheading.innerText = name;
         results.appendChild(mheading);
-        module = document.createElement(&#x27;ol&#x27;);
+        module = document.createElement('ol');
         results.appendChild(module);*/
     },
 ...</pre></li>
@@ -4091,19 +4084,19 @@ nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
         _name = name ? [].concat(name, k) : [k];
         _name.toString = function () {
             // fallback for old one
-            return this.join(&#x27; - &#x27;);
+            return this.join(' - ');
         };
 
-        if (typeof prop === &#x27;function&#x27;) {
+        if (typeof prop === 'function') {
             var in_name = false,
                 in_specific_test = (_name.toString() === opt.testFullSpec) ? true : false;
-            for (var i = 0; i &#x3c; _name.length; i += 1) {
+            for (var i = 0; i &lt; _name.length; i += 1) {
                 if (_name[i] === opt.testspec) {
                     in_name = true;
                 }
             }
 
-            if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+            if ((!opt.testFullSpec || in_specific_test) &amp;&amp; (!opt.testspec || in_name)) {
                 if (opt.moduleStart) {
                     opt.moduleStart();
                 }
@@ -4165,7 +4158,7 @@ nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
         }
     }
 
-    if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+    if ((!opt.testFullSpec || in_specific_test) &amp;&amp; (!opt.testspec || in_name)) {
         if (opt.moduleStart) {
             opt.moduleStart();
         }
@@ -4214,7 +4207,7 @@ else {
     if (!options) {
         // load default options
         var content = fs.readFileSync(
-            __dirname + &#x27;/../../bin/nodeunit.json&#x27;, &#x27;utf8&#x27;
+            __dirname + '/../../bin/nodeunit.json', 'utf8'
         );
         options = JSON.parse(content);
     }
@@ -4231,22 +4224,22 @@ else {
     var assertion_message = function (str) {
         return options.assertion_prefix + str + options.assertion_suffix;
     };
-    var pass_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u221A&#x27; : &#x27;✔&#x27;;
-    var fail_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u00D7&#x27; : &#x27;✖&#x27;;
+    var pass_indicator = process.platform === 'win32' ? '\u221A' : 'âœ”';
+    var fail_indicator = process.platform === 'win32' ? '\u00D7' : 'âœ–';
 
     var start = new Date().getTime();
     var tracker = track.createTracker(function (tracker) {
         if (tracker.unfinished()) {
-            console.log(&#x27;&#x27;);
+            console.log('');
             console.log(error(bold(
-                &#x27;FAILURES: Undone tests (or their setups/teardowns): &#x27;
+                'FAILURES: Undone tests (or their setups/teardowns): '
             )));
             var names = tracker.names();
-            for (var i = 0; i &#x3c; names.length; i += 1) {
-                console.log(&#x27;- &#x27; + names[i]);
+            for (var i = 0; i &lt; names.length; i += 1) {
+                console.log('- ' + names[i]);
             }
-            console.log(&#x27;&#x27;);
-            console.log(&#x27;To fix this, make sure all tests call test.done()&#x27;);
+            console.log('');
+            console.log('To fix this, make sure all tests call test.done()');
             process.reallyExit(tracker.unfinished());
         }
     });
@@ -4256,26 +4249,26 @@ else {
 	    testFullSpec: options.testFullSpec,
         recursive: options.recursive,
         moduleStart: function (name) {
-            console.log(&#x27;\n&#x27; + bold(name));
+            console.log('\n' + bold(name));
         },
         testDone: function (name, assertions) {
             tracker.remove(name);
 
             if (!assertions.failures()) {
-                console.log(pass_indicator + &#x27; &#x27; + name);
+                console.log(pass_indicator + ' ' + name);
             }
             else {
-                console.log(error(fail_indicator + &#x27; &#x27; + name) + &#x27;\n&#x27;);
+                console.log(error(fail_indicator + ' ' + name) + '\n');
                 assertions.forEach(function (a) {
                     if (a.failed()) {
                         a = utils.betterErrors(a);
-                        if (a.error instanceof AssertionError &#x26;&#x26; a.message) {
+                        if (a.error instanceof AssertionError &amp;&amp; a.message) {
                             console.log(
-                                &#x27;Assertion Message: &#x27; +
+                                'Assertion Message: ' +
                                 assertion_message(a.message)
                             );
                         }
-                        console.log(a.error.stack + &#x27;\n&#x27;);
+                        console.log(a.error.stack + '\n');
                     }
                 });
             }
@@ -4285,25 +4278,25 @@ else {
             var duration = end - start;
             if (assertions.failures()) {
                 console.log(
-                    &#x27;\n&#x27; + bold(error(&#x27;FAILURES: &#x27;)) + assertions.failures() +
-                    &#x27;/&#x27; + assertions.length + &#x27; assertions failed (&#x27; +
-                    assertions.duration + &#x27;ms)&#x27;
+                    '\n' + bold(error('FAILURES: ')) + assertions.failures() +
+                    '/' + assertions.length + ' assertions failed (' +
+                    assertions.duration + 'ms)'
                 );
             }
             else {
                 console.log(
-                   &#x27;\n&#x27; + bold(ok(&#x27;OK: &#x27;)) + assertions.length +
-                   &#x27; assertions (&#x27; + assertions.duration + &#x27;ms)&#x27;
+                   '\n' + bold(ok('OK: ')) + assertions.length +
+                   ' assertions (' + assertions.duration + 'ms)'
                 );
             }
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         },
         testStart: function(name) {
             tracker.put(name);
         }
     };
-	if (files &#x26;&#x26; files.length) {
+	if (files &amp;&amp; files.length) {
 	    var paths = files.map(function (p) {
 	        return path.resolve(p);
 	    });
@@ -4313,20 +4306,20 @@ else {
 	}
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -4350,21 +4343,21 @@ else {
 
     var start = new Date().getTime();
     var paths = files.map(function (p) {
-        if (p.indexOf(&#x27;/&#x27;) === 0) {
+        if (p.indexOf('/') === 0) {
             return p;
         }
         return path.resolve(p);
     });
     var tracker = track.createTracker(function (tracker) {
         if (tracker.unfinished()) {
-            console.log(&#x27;&#x27;);
-            console.log(&#x27;FAILURES: Undone tests (or their setups/teardowns): &#x27;);
+            console.log('');
+            console.log('FAILURES: Undone tests (or their setups/teardowns): ');
             var names = tracker.names();
-            for (var i = 0; i &#x3c; names.length; i += 1) {
-                console.log(&#x27;- &#x27; + names[i]);
+            for (var i = 0; i &lt; names.length; i += 1) {
+                console.log('- ' + names[i]);
             }
-            console.log(&#x27;&#x27;);
-            console.log(&#x27;To fix this, make sure all tests call test.done()&#x27;);
+            console.log('');
+            console.log('To fix this, make sure all tests call test.done()');
             process.reallyExit(tracker.unfinished());
         }
     });
@@ -4372,25 +4365,25 @@ else {
     nodeunit.runFiles(paths, {
         testspec: undefined,
         moduleStart: function (name) {
-            console.log(&#x27;\n&#x27; + name);
+            console.log('\n' + name);
         },
         testDone: function (name, assertions) {
             tracker.remove(name);
 
             if (!assertions.failures()) {
-                console.log(&#x27;✔ &#x27; + name);
+                console.log('âœ” ' + name);
             }
             else {
-                console.log(&#x27;✖ &#x27; + name + &#x27;\n&#x27;);
+                console.log('âœ– ' + name + '\n');
                 assertions.forEach(function (a) {
                     if (a.failed()) {
                         a = utils.betterErrors(a);
-                        if (a.error instanceof AssertionError &#x26;&#x26; a.message) {
+                        if (a.error instanceof AssertionError &amp;&amp; a.message) {
                             console.log(
-                                &#x27;Assertion Message: &#x27; + a.message
+                                'Assertion Message: ' + a.message
                             );
                         }
-                        console.log(a.error.stack + &#x27;\n&#x27;);
+                        console.log(a.error.stack + '\n');
                     }
                 });
             }
@@ -4400,19 +4393,19 @@ else {
             var duration = end - start;
             if (assertions.failures()) {
                 console.log(
-                    &#x27;\n&#x27; + &#x27;FAILURES: &#x27; + assertions.failures() +
-                    &#x27;/&#x27; + assertions.length + &#x27; assertions failed (&#x27; +
-                    assertions.duration + &#x27;ms)&#x27;
+                    '\n' + 'FAILURES: ' + assertions.failures() +
+                    '/' + assertions.length + ' assertions failed (' +
+                    assertions.duration + 'ms)'
                 );
             }
             else {
                 console.log(
-                   &#x27;\n&#x27; + &#x27;OK: &#x27; + assertions.length +
-                   &#x27; assertions (&#x27; + assertions.duration + &#x27;ms)&#x27;
+                   '\n' + 'OK: ' + assertions.length +
+                   ' assertions (' + assertions.duration + 'ms)'
                 );
             }
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         },
         testStart: function (name) {
             tracker.put(name);
@@ -4420,20 +4413,20 @@ else {
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -4460,95 +4453,95 @@ else {
         return path.resolve(p);
     });
 
-    console.log(&#x27;&#x3c;html&#x3e;&#x27;);
-    console.log(&#x27;&#x3c;head&#x3e;&#x27;);
-    console.log(&#x27;&#x3c;title&#x3e;&#x3c;/title&#x3e;&#x27;);
-    console.log(&#x27;&#x3c;style type=&#x22;text/css&#x22;&#x3e;&#x27;);
-    console.log(&#x27;body { font: 12px Helvetica Neue }&#x27;);
-    console.log(&#x27;h2 { margin:0 ; padding:0 }&#x27;);
-    console.log(&#x27;pre { font: 11px Andale Mono; margin-left: 1em; padding-left: 1em; margin-top:0; font-size:smaller;}&#x27;);
-    console.log(&#x27;.assertion_message { margin-left: 1em; }&#x27;);
-    console.log(&#x27;  ol {&#x27; +
-    &#x27;	list-style: none;&#x27; +
-    &#x27;	margin-left: 1em;&#x27; +
-    &#x27;	padding-left: 1em;&#x27; +
-    &#x27;	text-indent: -1em;&#x27; +
-    &#x27;}&#x27;);
-    console.log(&#x27;  ol li.pass:before { content: &#x22;\\2714 \\0020&#x22;; }&#x27;);
-    console.log(&#x27;  ol li.fail:before { content: &#x22;\\2716 \\0020&#x22;; }&#x27;);
-    console.log(&#x27;&#x3c;/style&#x3e;&#x27;);
-    console.log(&#x27;&#x3c;/head&#x3e;&#x27;);
-    console.log(&#x27;&#x3c;body&#x3e;&#x27;);
+    console.log('&lt;html&gt;');
+    console.log('&lt;head&gt;');
+    console.log('&lt;title&gt;&lt;/title&gt;');
+    console.log('&lt;style type="text/css"&gt;');
+    console.log('body { font: 12px Helvetica Neue }');
+    console.log('h2 { margin:0 ; padding:0 }');
+    console.log('pre { font: 11px Andale Mono; margin-left: 1em; padding-left: 1em; margin-top:0; font-size:smaller;}');
+    console.log('.assertion_message { margin-left: 1em; }');
+    console.log('  ol {' +
+    '	list-style: none;' +
+    '	margin-left: 1em;' +
+    '	padding-left: 1em;' +
+    '	text-indent: -1em;' +
+    '}');
+    console.log('  ol li.pass:before { content: "\\2714 \\0020"; }');
+    console.log('  ol li.fail:before { content: "\\2716 \\0020"; }');
+    console.log('&lt;/style&gt;');
+    console.log('&lt;/head&gt;');
+    console.log('&lt;body&gt;');
     nodeunit.runFiles(paths, {
         testspec: options.testspec,
         testFullSpec: options.testFullSpec,
         moduleStart: function (name) {
-            console.log(&#x27;&#x3c;h2&#x3e;&#x27; + name + &#x27;&#x3c;/h2&#x3e;&#x27;);
-            console.log(&#x27;&#x3c;ol&#x3e;&#x27;);
+            console.log('&lt;h2&gt;' + name + '&lt;/h2&gt;');
+            console.log('&lt;ol&gt;');
         },
         testDone: function (name, assertions) {
             if (!assertions.failures()) {
-                console.log(&#x27;&#x3c;li class=&#x22;pass&#x22;&#x3e;&#x27; + name + &#x27;&#x3c;/li&#x3e;&#x27;);
+                console.log('&lt;li class="pass"&gt;' + name + '&lt;/li&gt;');
             }
             else {
-                console.log(&#x27;&#x3c;li class=&#x22;fail&#x22;&#x3e;&#x27; + name);
+                console.log('&lt;li class="fail"&gt;' + name);
                 assertions.forEach(function (a) {
                     if (a.failed()) {
                         a = utils.betterErrors(a);
-                        if (a.error instanceof AssertionError &#x26;&#x26; a.message) {
-                            console.log(&#x27;&#x3c;div class=&#x22;assertion_message&#x22;&#x3e;&#x27; +
-                                &#x27;Assertion Message: &#x27; + a.message +
-                            &#x27;&#x3c;/div&#x3e;&#x27;);
+                        if (a.error instanceof AssertionError &amp;&amp; a.message) {
+                            console.log('&lt;div class="assertion_message"&gt;' +
+                                'Assertion Message: ' + a.message +
+                            '&lt;/div&gt;');
                         }
-                        console.log(&#x27;&#x3c;pre&#x3e;&#x27;);
+                        console.log('&lt;pre&gt;');
                         console.log(a.error.stack);
-                        console.log(&#x27;&#x3c;/pre&#x3e;&#x27;);
+                        console.log('&lt;/pre&gt;');
                     }
                 });
-                console.log(&#x27;&#x3c;/li&#x3e;&#x27;);
+                console.log('&lt;/li&gt;');
             }
         },
         moduleDone: function () {
-            console.log(&#x27;&#x3c;/ol&#x3e;&#x27;);
+            console.log('&lt;/ol&gt;');
         },
         done: function (assertions) {
             var end = new Date().getTime();
             var duration = end - start;
             if (assertions.failures()) {
                 console.log(
-                    &#x27;&#x3c;h3&#x3e;FAILURES: &#x27;  + assertions.failures() +
-                    &#x27;/&#x27; + assertions.length + &#x27; assertions failed (&#x27; +
-                    assertions.duration + &#x27;ms)&#x3c;/h3&#x3e;&#x27;
+                    '&lt;h3&gt;FAILURES: '  + assertions.failures() +
+                    '/' + assertions.length + ' assertions failed (' +
+                    assertions.duration + 'ms)&lt;/h3&gt;'
                 );
             }
             else {
                 console.log(
-                    &#x27;&#x3c;h3&#x3e;OK: &#x27; + assertions.length +
-                    &#x27; assertions (&#x27; + assertions.duration + &#x27;ms)&#x3c;/h3&#x3e;&#x27;
+                    '&lt;h3&gt;OK: ' + assertions.length +
+                    ' assertions (' + assertions.duration + 'ms)&lt;/h3&gt;'
                 );
             }
-            console.log(&#x27;&#x3c;/body&#x3e;&#x27;);
-            console.log(&#x27;&#x3c;/html&#x3e;&#x27;);
+            console.log('&lt;/body&gt;');
+            console.log('&lt;/html&gt;');
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         }
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -4571,9 +4564,9 @@ else {
     <li>description and source-code<pre class="apidocCodePre">run = function (files, opts, callback) {
     if (!opts.output) {
         console.error(
-            &#x27;Error: No output directory defined.\n&#x27; +
-            &#x27;\tEither add an &#x22;output&#x22; property to your nodeunit.json config &#x27; +
-            &#x27;file, or\n\tuse the --output command line option.&#x27;
+            'Error: No output directory defined.\n' +
+            '\tEither add an "output" property to your nodeunit.json config ' +
+            'file, or\n\tuse the --output command line option.'
         );
         return;
     }
@@ -4611,7 +4604,7 @@ else {
         },
         testDone: function (name, assertions) {
             var testcase = {name: name};
-            for (var i=0; i&#x3c;assertions.length; i++) {
+            for (var i=0; i&lt;assertions.length; i++) {
                 var a = assertions[i];
                 if (a.failed()) {
                     a = utils.betterErrors(a);
@@ -4637,7 +4630,7 @@ else {
             var duration = end - start;
 
             ensureDir(opts.output, function (err) {
-                var tmpl = __dirname + &#x22;/../../share/junit.xml.ejs&#x22;;
+                var tmpl = __dirname + "/../../share/junit.xml.ejs";
                 fs.readFile(tmpl, function (err, data) {
                     if (err) throw err;
                     var tmpl = data.toString();
@@ -4648,47 +4641,47 @@ else {
                         });
                         var filename = path.resolve(
                             opts.output,
-                            module.name + &#x27;.xml&#x27;
+                            module.name + '.xml'
                         );
-                        console.log(&#x27;Writing &#x27; + filename);
-                        fs.writeFileSync(filename, rendered, &#x27;utf8&#x27;);
+                        console.log('Writing ' + filename);
+                        fs.writeFileSync(filename, rendered, 'utf8');
                     }
                     if (assertions.failures()) {
                         console.log(
-                            &#x27;\n&#x27; + bold(error(&#x27;FAILURES: &#x27;)) +
-                            assertions.failures() + &#x27;/&#x27; +
-                            assertions.length + &#x27; assertions failed (&#x27; +
-                            assertions.duration + &#x27;ms)&#x27;
+                            '\n' + bold(error('FAILURES: ')) +
+                            assertions.failures() + '/' +
+                            assertions.length + ' assertions failed (' +
+                            assertions.duration + 'ms)'
                     	);
                     }
                     else {
                         console.log(
-                            &#x27;\n&#x27; + bold(ok(&#x27;OK: &#x27;)) + assertions.length +
-                            &#x27; assertions (&#x27; + assertions.duration + &#x27;ms)&#x27;
+                            '\n' + bold(ok('OK: ')) + assertions.length +
+                            ' assertions (' + assertions.duration + 'ms)'
                         );
                     }
 
-                    if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+                    if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
                 });
             });
         }
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -4723,25 +4716,25 @@ else {
                 reportFile(filename, data);
             });
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         }
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -4762,7 +4755,7 @@ else {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">run = function (files, options, callback) {
-    // options doesn&#x27;t effect
+    // options doesn't effect
 
     var parseStack = function (stack, delimiter) {
         var parseTrace = function (trace) {
@@ -4779,20 +4772,20 @@ else {
                 row = RegExp.$2;
                 column = RegExp.$3;
             } else {
-                throw new Error(&#x22;Could not parse a line of stack trace: &#x22; + trace);
+                throw new Error("Could not parse a line of stack trace: " + trace);
             }
             return {filename: filename, row: row, column: column};
         };
         if (delimiter === undefined) {
-            delimiter = &#x27;:&#x27;;
+            delimiter = ':';
         }
-        traceback = stack.split(&#x27;\n&#x27;);
+        traceback = stack.split('\n');
         firstline = traceback.shift();
         trace = parseTrace(traceback[0]);
         return {filename: trace.filename, row: trace.row, column: trace.column, message: firstline};
     };
     var createErrorMessage = function(type, name, filename, row, column, message){
-        return [type, name, filename, row, column, message].join(&#x22;:&#x22;);
+        return [type, name, filename, row, column, message].join(":");
     };
     var paths = files.map(function (p) {
         return path.resolve(p);
@@ -4800,11 +4793,11 @@ else {
     var tracker = track.createTracker(function (tracker) {
         if (tracker.unfinished()) {
             var names = tracker.names();
-            for (var i = 0; i &#x3c; names.length; i += 1) {
+            for (var i = 0; i &lt; names.length; i += 1) {
                 console.log(createErrorMessage(
-                    &#x27;Error&#x27;, names[i],
-                    &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;,
-                    &#x27;Undone tests - To fix this, make sure all tests call test.done()&#x27;
+                    'Error', names[i],
+                    '', '', '',
+                    'Undone tests - To fix this, make sure all tests call test.done()'
                 ));
             }
             process.reallyExit(tracker.unfinished());
@@ -4821,16 +4814,16 @@ else {
                 assertions.forEach(function (a) {
                     var stacks, message, filename, row, column;
                     if (a.failed()) {
-                        stackinfo = parseStack(a.error.stack, &#x27;:&#x27;);
+                        stackinfo = parseStack(a.error.stack, ':');
                         console.log(createErrorMessage(
-                            &#x27;Fail&#x27;, name, stackinfo.filename,
+                            'Fail', name, stackinfo.filename,
                             stackinfo.row, stackinfo.column, stackinfo.message));
                     }
                 });
             }
         },
         done: function (assertions, end) {
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         },
         testStart: function(name) {
             tracker.put(name);
@@ -4838,20 +4831,20 @@ else {
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -4876,7 +4869,7 @@ else {
     if (!options) {
         // load default options
         var content = fs.readFileSync(
-            __dirname + &#x27;/../../bin/nodeunit.json&#x27;, &#x27;utf8&#x27;
+            __dirname + '/../../bin/nodeunit.json', 'utf8'
         );
         options = JSON.parse(content);
     }
@@ -4898,16 +4891,16 @@ else {
 
     var tracker = track.createTracker(function (tracker) {
         if (tracker.unfinished()) {
-            console.log(&#x27;&#x27;);
+            console.log('');
             console.log(bold(red(
-                &#x27;FAILURES: Undone tests (or their setups/teardowns): &#x27;
+                'FAILURES: Undone tests (or their setups/teardowns): '
             )));
             var names = tracker.names();
-            for (var i = 0; i &#x3c; names.length; i += 1) {
-                console.log(&#x27;- &#x27; + names[i]);
+            for (var i = 0; i &lt; names.length; i += 1) {
+                console.log('- ' + names[i]);
             }
-            console.log(&#x27;&#x27;);
-            console.log(&#x27;To fix this, make sure all tests call test.done()&#x27;);
+            console.log('');
+            console.log('To fix this, make sure all tests call test.done()');
             process.reallyExit(tracker.unfinished());
         }
     });
@@ -4917,21 +4910,21 @@ else {
 	    testspec: options.testspec,
 	    testFullSpec: options.testFullSpec,
         moduleStart: function (name) {
-            process.stdout.write(bold(name) + &#x27;: &#x27;);
+            process.stdout.write(bold(name) + ': ');
         },
         moduleDone: function (name, assertions) {
-            console.log(&#x27;&#x27;);
+            console.log('');
             if (assertions.failures()) {
                 assertions.forEach(function (a) {
                     if (a.failed()) {
                         a = utils.betterErrors(a);
-                        if (a.error instanceof AssertionError &#x26;&#x26; a.message) {
+                        if (a.error instanceof AssertionError &amp;&amp; a.message) {
                             console.log(
-                                &#x27;Assertion in test &#x27; + bold(a.testname) + &#x27;: &#x27; +
+                                'Assertion in test ' + bold(a.testname) + ': ' +
                                 magenta(a.message)
                             );
                         }
-                        console.log(a.error.stack + &#x27;\n&#x27;);
+                        console.log(a.error.stack + '\n');
                     }
                 });
             }
@@ -4944,10 +4937,10 @@ else {
             tracker.remove(name);
 
             if (!assertions.failures()) {
-                process.stdout.write(&#x27;.&#x27;);
+                process.stdout.write('.');
             }
             else {
-                process.stdout.write(red(&#x27;F&#x27;));
+                process.stdout.write(red('F'));
                 assertions.forEach(function (assertion) {
                     assertion.testname = name;
                 });
@@ -4958,23 +4951,23 @@ else {
             var duration = end - start;
             if (assertions.failures()) {
                 console.log(
-                    &#x27;\n&#x27; + bold(red(&#x27;FAILURES: &#x27;)) + assertions.failures() +
-                    &#x27;/&#x27; + assertions.length + &#x27; assertions failed (&#x27; +
-                    assertions.duration + &#x27;ms)&#x27;
+                    '\n' + bold(red('FAILURES: ')) + assertions.failures() +
+                    '/' + assertions.length + ' assertions failed (' +
+                    assertions.duration + 'ms)'
                 );
             }
             else {
                 console.log(
-                    &#x27;\n&#x27; + bold(green(&#x27;OK: &#x27;)) + assertions.length +
-                    &#x27; assertions (&#x27; + assertions.duration + &#x27;ms)&#x27;
+                    '\n' + bold(green('OK: ')) + assertions.length +
+                    ' assertions (' + assertions.duration + 'ms)'
                 );
             }
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         }
     };
 
-	if (files &#x26;&#x26; files.length) {
+	if (files &amp;&amp; files.length) {
       var paths = files.map(function (p) {
           return path.resolve(p);
       });
@@ -4984,20 +4977,20 @@ else {
 	}
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -5022,8 +5015,8 @@ else {
     if (!options) {
         // load default options
         var content = fs.readFileSync(
-            __dirname + &#x27;/../../bin/nodeunit.json&#x27;,
-            &#x27;utf8&#x27;
+            __dirname + '/../../bin/nodeunit.json',
+            'utf8'
         );
         options = JSON.parse(content);
     }
@@ -5040,7 +5033,7 @@ else {
     var assertion_message = function (str) {
         return options.assertion_prefix + str + options.assertion_suffix;
     };
-    var fail_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u00D7&#x27; : &#x27;✖&#x27;;
+    var fail_indicator = process.platform === 'win32' ? '\u00D7' : 'âœ–';
 
     var spaces_per_indent = options.spaces_per_indent || 4;
 
@@ -5051,35 +5044,35 @@ else {
     var tracker = track.createTracker(function (tracker) {
         var i, names;
         if (tracker.unfinished()) {
-            console.log(&#x27;&#x27;);
+            console.log('');
             console.log(error(bold(
-                &#x27;FAILURES: Undone tests (or their setups/teardowns): &#x27;
+                'FAILURES: Undone tests (or their setups/teardowns): '
             )));
             names = tracker.names();
-            for (i = 0; i &#x3c; names.length; i += 1) {
-                console.log(&#x27;- &#x27; + names[i]);
+            for (i = 0; i &lt; names.length; i += 1) {
+                console.log('- ' + names[i]);
             }
-            console.log(&#x27;&#x27;);
-            console.log(&#x27;To fix this, make sure all tests call test.done()&#x27;);
+            console.log('');
+            console.log('To fix this, make sure all tests call test.done()');
             process.reallyExit(tracker.unfinished());
         }
     });
 
-    // Object to hold status of each &#x27;part&#x27; of the testCase/name array,
+    // Object to hold status of each 'part' of the testCase/name array,
     // i.e., whether this part has been printed yet.
     tracker.already_printed = {};
 
     var pass_text = function (txt) {
         // Print in bold green.
-        return bold(ok(txt + &#x22; (pass)&#x22;));
+        return bold(ok(txt + " (pass)"));
     };
 
     var fail_text = function (txt) {
-        return bold(error(txt + &#x22; (fail) &#x22; + fail_indicator + &#x22; &#x22;));
+        return bold(error(txt + " (fail) " + fail_indicator + " "));
     };
 
     var status_text = function (txt, status) {
-        if (status === &#x27;pass&#x27;) {
+        if (status === 'pass') {
             return pass_text(txt);
         } else {
             return fail_text(txt);
@@ -5089,18 +5082,18 @@ else {
 <span class="apidocCodeCommentSpan">    /**
      *  Slices an array, returns a string by joining the sliced elements.
      *  @example
-     *   &#x3e; name_slice([&#x27;TC1&#x27;, &#x27;TC1.1&#x27;, &#x27;mytest&#x27;], 1);
-     *   &#x22;TC1,TC1.1&#x22;
+     *   &gt; name_slice(['TC1', 'TC1.1', 'mytest'], 1);
+     *   "TC1,TC1.1"
      */
 </span>    var name_slice = function (name_arr, end_index) {
-        return name_arr.slice(0, end_index + 1).join(&#x22;,&#x22;);
+        return name_arr.slice(0, end_index + 1).join(",");
     };
 
     var indent = (function () {
-        var txt = &#x27;&#x27;;
+        var txt = '';
         var i;
-        for (i = 0; i &#x3c; spaces_per_indent; i++) {
-            txt += &#x27; &#x27;;
+        for (i = 0; i &lt; spaces_per_indent; i++) {
+            txt += ' ';
         }
         return txt;
     }());
@@ -5108,36 +5101,36 @@ else {
     // Indent once for each indent_level
     var add_indent = function (txt, indent_level) {
         var k;
-        for (k = 0; k &#x3c; indent_level; k++) {
+        for (k = 0; k &lt; indent_level; k++) {
             txt += indent;
         }
         return txt;
     };
 
-    // If it&#x27;s not the last element of the name_arr, it&#x27;s a testCase.
+    // If it's not the last element of the name_arr, it's a testCase.
     var is_testCase = function (name_arr, index) {
         return index === name_arr.length - 1 ? false : true;
     };
 
     var testCase_line = function (txt) {
-        return txt + &#x22;\n&#x22;;
+        return txt + "\n";
     };
 
     /**
      * Prints (console.log) the nested test status line(s).
      *
      * @param {Array} name_arr - Array of name elements.
-     * @param {String} status - either &#x27;pass&#x27; or &#x27;fail&#x27;.
+     * @param {String} status - either 'pass' or 'fail'.
      * @example
-     *   &#x3e; print_status([&#x27;TC1&#x27;, &#x27;TC1.1&#x27;, &#x27;mytest&#x27;], &#x27;pass&#x27;);
+     *   &gt; print_status(['TC1', 'TC1.1', 'mytest'], 'pass');
      *   TC1
      *      TC1.1
      *         mytest (pass)
      */
     var print_status = function (name_arr, status) {
-        var txt = &#x27;&#x27;;
+        var txt = '';
         var _name_slice, part, i;
-        for (i = 0; i &#x3c; name_arr.length; i++) {
+        for (i = 0; i &lt; name_arr.length; i++) {
             _name_slice = name_slice(name_arr, i);
             part = name_arr[i];
             if (!tracker.already_printed[_name_slice]) {
@@ -5155,20 +5148,20 @@ else {
 
     nodeunit.run ...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -5205,7 +5198,7 @@ else {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">complete = function (name, assertions)
 {
-    exports.emit(&#x27;complete&#x27;, name, assertions);
+    exports.emit('complete', name, assertions);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
    var start = new Date().getTime();
@@ -5237,7 +5230,7 @@ else {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">done = function ()
 {
-    exports.emit(&#x27;done&#x27;);
+    exports.emit('done');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 -----
@@ -5246,12 +5239,12 @@ Here is an example unit test module:
 
 exports.testSomething = function(test) {
     test.expect(1);
-    test.ok(true, &#x22;this assertion should pass&#x22;);
+    test.ok(true, "this assertion should pass");
     test.<span class="apidocCodeKeywordSpan">done</span>();
 };
 
 exports.testSomethingElse = function(test) {
-    test.ok(false, &#x22;this assertion should fail&#x22;);
+    test.ok(false, "this assertion should fail");
     test.done();
 };
 ...</pre></li>
@@ -5269,31 +5262,31 @@ exports.testSomethingElse = function(test) {
     <li>description and source-code<pre class="apidocCodePre">function emit(type) {
   var er, handler, len, args, i, events, domain;
   var needDomainExit = false;
-  var doError = (type === &#x27;error&#x27;);
+  var doError = (type === 'error');
 
   events = this._events;
   if (events)
-    doError = (doError &#x26;&#x26; events.error == null);
+    doError = (doError &amp;&amp; events.error == null);
   else if (!doError)
     return false;
 
   domain = this.domain;
 
-  // If there is no &#x27;error&#x27; event listener then throw.
+  // If there is no 'error' event listener then throw.
   if (doError) {
     er = arguments[1];
     if (domain) {
       if (!er)
-        er = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event&#x27;);
+        er = new Error('Uncaught, unspecified "error" event');
       er.domainEmitter = this;
       er.domain = domain;
       er.domainThrown = false;
-      domain.emit(&#x27;error&#x27;, er);
+      domain.emit('error', er);
     } else if (er instanceof Error) {
-      throw er; // Unhandled &#x27;error&#x27; event
+      throw er; // Unhandled 'error' event
     } else {
       // At least give some kind of context to the user
-      var err = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event. (&#x27; + er + &#x27;)&#x27;);
+      var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
       err.context = er;
       throw err;
     }
@@ -5305,12 +5298,12 @@ exports.testSomethingElse = function(test) {
   if (!handler)
     return false;
 
-  if (domain &#x26;&#x26; this !== process) {
+  if (domain &amp;&amp; this !== process) {
     domain.enter();
     needDomainExit = true;
   }
 
-  var isFn = typeof handler === &#x27;function&#x27;;
+  var isFn = typeof handler === 'function';
   len = arguments.length;
   switch (len) {
     // fast cases
@@ -5329,7 +5322,7 @@ exports.testSomethingElse = function(test) {
     // slower
     default:
       args = new Array(len - 1);
-      for (i = 1; i &#x3c; len; i++)
+      for (i = 1; i &lt; len; i++)
         args[i - 1] = arguments[i];
       emitMany(handler, isFn, this, args);
   }
@@ -5344,16 +5337,16 @@ for (label in events.EventEmitter.prototype) {
   exports[label] = events.EventEmitter.prototype[label];
 }
 
-/* Emit event &#x27;complete&#x27; on completion of a test suite. */
+/* Emit event 'complete' on completion of a test suite. */
 exports.complete = function(name, assertions)
 {
-    exports.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;complete&#x27;, name, assertions);
+    exports.<span class="apidocCodeKeywordSpan">emit</span>('complete', name, assertions);
 };
 
-/* Emit event &#x27;complete&#x27; on completion of all tests. */
+/* Emit event 'complete' on completion of all tests. */
 exports.done = function()
 {
-    exports.emit(&#x27;done&#x27;);
+    exports.emit('done');
 };
 ...</pre></li>
     </ul>
@@ -5368,7 +5361,7 @@ exports.done = function()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function eventNames() {
-  return this._eventsCount &#x3e; 0 ? Reflect.ownKeys(this._events) : [];
+  return this._eventsCount &gt; 0 ? Reflect.ownKeys(this._events) : [];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5403,7 +5396,7 @@ exports.done = function()
   if (events) {
     const evlistener = events[type];
 
-    if (typeof evlistener === &#x27;function&#x27;) {
+    if (typeof evlistener === 'function') {
       return 1;
     } else if (evlistener) {
       return evlistener.length;
@@ -5435,7 +5428,7 @@ exports.done = function()
     evlistener = events[type];
     if (!evlistener)
       ret = [];
-    else if (typeof evlistener === &#x27;function&#x27;)
+    else if (typeof evlistener === 'function')
       ret = [evlistener];
     else
       ret = arrayClone(evlistener, evlistener.length);
@@ -5466,7 +5459,7 @@ exports.done = function()
         }
     };
 
-    process.<span class="apidocCodeKeywordSpan">on</span>(&#x27;exit&#x27;, function() {
+    process.<span class="apidocCodeKeywordSpan">on</span>('exit', function() {
         on_exit = on_exit || exports.default_on_exit;
         on_exit(tracker);
     });
@@ -5486,8 +5479,8 @@ exports.done = function()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function once(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.on(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -5519,8 +5512,8 @@ exports.done = function()
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function prependOnceListener(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.prependListener(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -5560,12 +5553,12 @@ exports.done = function()
   // emit removeListener for all listeners on all events
   if (arguments.length === 0) {
     var keys = Object.keys(events);
-    for (var i = 0, key; i &#x3c; keys.length; ++i) {
+    for (var i = 0, key; i &lt; keys.length; ++i) {
       key = keys[i];
-      if (key === &#x27;removeListener&#x27;) continue;
+      if (key === 'removeListener') continue;
       this.removeAllListeners(key);
     }
-    this.removeAllListeners(&#x27;removeListener&#x27;);
+    this.removeAllListeners('removeListener');
     this._events = new EventHandlers();
     this._eventsCount = 0;
     return this;
@@ -5573,7 +5566,7 @@ exports.done = function()
 
   listeners = events[type];
 
-  if (typeof listeners === &#x27;function&#x27;) {
+  if (typeof listeners === 'function') {
     this.removeListener(type, listeners);
   } else if (listeners) {
     // LIFO order
@@ -5599,8 +5592,8 @@ exports.done = function()
     <li>description and source-code<pre class="apidocCodePre">function removeListener(type, listener) {
   var list, events, position, i, originalListener;
 
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
 
   events = this._events;
   if (!events)
@@ -5616,12 +5609,12 @@ exports.done = function()
     else {
       delete events[type];
       if (events.removeListener)
-        this.emit(&#x27;removeListener&#x27;, type, list.listener || listener);
+        this.emit('removeListener', type, list.listener || listener);
     }
-  } else if (typeof list !== &#x27;function&#x27;) {
+  } else if (typeof list !== 'function') {
     position = -1;
 
-    for (i = list.length; i-- &#x3e; 0;) {
+    for (i = list.length; i-- &gt; 0;) {
       if (list[i] === listener || list[i].listener === listener) {
         originalListener = list[i].listener;
         position = i;
@@ -5629,7 +5622,7 @@ exports.done = function()
       }
     }
 
-    if (position &#x3c; 0)
+    if (position &lt; 0)
       return this;
 
     if (list.length === 1) {
@@ -5645,7 +5638,7 @@ exports.done = function()
     }
 
     if (events.removeListener)
-      this.emit(&#x27;removeListener&#x27;, type, originalListener || listener);
+      this.emit('removeListener', type, originalListener || listener);
   }
 
   return this;
@@ -5689,7 +5682,7 @@ exports.done = function()
             tracker.put(name);
         }
     };
-	if (files &#x26;&#x26; files.length) {
+	if (files &amp;&amp; files.length) {
 	    var paths = files.map(function (p) {
 	        return path.resolve(p);
 	    });
@@ -5779,19 +5772,19 @@ exports.runModules = function (modules, opt) {
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var banner = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-banner&#x27;);
-var userAgent = getOrCreate(&#x27;h2&#x27;, &#x27;nodeunit-userAgent&#x27;);
-var tests = getOrCreate(&#x27;ol&#x27;, &#x27;nodeunit-tests&#x27;);
-var result = getOrCreate(&#x27;p&#x27;, &#x27;nodeunit-testresult&#x27;);
+var banner = getOrCreate('h2', 'nodeunit-banner');
+var userAgent = getOrCreate('h2', 'nodeunit-userAgent');
+var tests = getOrCreate('ol', 'nodeunit-tests');
+var result = getOrCreate('p', 'nodeunit-testresult');
 
 setText(userAgent, navigator.userAgent);
 
 nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
     moduleStart: function (name) {
-        /*var mheading = document.createElement(&#x27;h2&#x27;);
+        /*var mheading = document.createElement('h2');
         mheading.innerText = name;
         results.appendChild(mheading);
-        module = document.createElement(&#x27;ol&#x27;);
+        module = document.createElement('ol');
         results.appendChild(module);*/
     },
 ...</pre></li>
@@ -5816,19 +5809,19 @@ nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
         _name = name ? [].concat(name, k) : [k];
         _name.toString = function () {
             // fallback for old one
-            return this.join(&#x27; - &#x27;);
+            return this.join(' - ');
         };
 
-        if (typeof prop === &#x27;function&#x27;) {
+        if (typeof prop === 'function') {
             var in_name = false,
                 in_specific_test = (_name.toString() === opt.testFullSpec) ? true : false;
-            for (var i = 0; i &#x3c; _name.length; i += 1) {
+            for (var i = 0; i &lt; _name.length; i += 1) {
                 if (_name[i] === opt.testspec) {
                     in_name = true;
                 }
             }
 
-            if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+            if ((!opt.testFullSpec || in_specific_test) &amp;&amp; (!opt.testspec || in_name)) {
                 if (opt.moduleStart) {
                     opt.moduleStart();
                 }
@@ -5890,7 +5883,7 @@ nodeunit.<span class="apidocCodeKeywordSpan">runModules</span>(modules, {
         }
     }
 
-    if ((!opt.testFullSpec || in_specific_test) &#x26;&#x26; (!opt.testspec || in_name)) {
+    if ((!opt.testFullSpec || in_specific_test) &amp;&amp; (!opt.testspec || in_name)) {
         if (opt.moduleStart) {
             opt.moduleStart();
         }
@@ -5915,8 +5908,8 @@ else {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function setMaxListeners(n) {
-  if (typeof n !== &#x27;number&#x27; || n &#x3c; 0 || isNaN(n))
-    throw new TypeError(&#x27;&#x22;n&#x22; argument must be a positive number&#x27;);
+  if (typeof n !== 'number' || n &lt; 0 || isNaN(n))
+    throw new TypeError('"n" argument must be a positive number');
   this._maxListeners = n;
   return this;
 }</pre></li>
@@ -5969,7 +5962,7 @@ else {
     if (!options) {
         // load default options
         var content = fs.readFileSync(
-            __dirname + &#x27;/../../bin/nodeunit.json&#x27;, &#x27;utf8&#x27;
+            __dirname + '/../../bin/nodeunit.json', 'utf8'
         );
         options = JSON.parse(content);
     }
@@ -5986,8 +5979,8 @@ else {
     var assertion_message = function (str) {
         return options.assertion_prefix + str + options.assertion_suffix;
     };
-    var pass_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u221A&#x27; : &#x27;✔&#x27;;
-    var fail_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u00D7&#x27; : &#x27;✖&#x27;;
+    var pass_indicator = process.platform === 'win32' ? '\u221A' : 'âœ”';
+    var fail_indicator = process.platform === 'win32' ? '\u00D7' : 'âœ–';
 
     var start = new Date().getTime();
     var paths = files.map(function (p) {
@@ -5998,30 +5991,30 @@ else {
         testspec: options.testspec,
         testFullSpec: options.testFullSpec,
         moduleStart: function (name) {
-            console.log(&#x27;\n&#x27; + bold(name));
+            console.log('\n' + bold(name));
         },
         testDone: function (name, assertions) {
             if (assertions.failures()) {
-                console.log(error(fail_indicator + &#x27; &#x27; + name) + &#x27;\n&#x27;);
+                console.log(error(fail_indicator + ' ' + name) + '\n');
                 assertions.forEach(function (a) {
                     if (a.failed()) {
                         a = utils.betterErrors(a);
-                        if (a.error instanceof AssertionError &#x26;&#x26; a.message) {
+                        if (a.error instanceof AssertionError &amp;&amp; a.message) {
                             console.log(
-                                &#x27;Assertion Message: &#x27; + assertion_message(a.message)
+                                'Assertion Message: ' + assertion_message(a.message)
                             );
                         }
-                        console.log(a.error.stack + &#x27;\n&#x27;);
+                        console.log(a.error.stack + '\n');
                     }
                 });
             }
         },
         moduleDone: function (name, assertions) {
             if (!assertions.failures()) {
-                console.log(pass_indicator + &#x27; all tests passed&#x27;);
+                console.log(pass_indicator + ' all tests passed');
             }
             else {
-                console.log(error(fail_indicator + &#x27; some tests failed&#x27;));
+                console.log(error(fail_indicator + ' some tests failed'));
             }
         },
         done: function (assertions) {
@@ -6029,37 +6022,37 @@ else {
             var duration = end - start;
             if (assertions.failures()) {
                 console.log(
-                    &#x27;\n&#x27; + bold(error(&#x27;FAILURES: &#x27;)) + assertions.failures() +
-                    &#x27;/&#x27; + assertions.length + &#x27; assertions failed (&#x27; +
-                    assertions.duration + &#x27;ms)&#x27;
+                    '\n' + bold(error('FAILURES: ')) + assertions.failures() +
+                    '/' + assertions.length + ' assertions failed (' +
+                    assertions.duration + 'ms)'
                 );
             }
             else {
                 console.log(
-                    &#x27;\n&#x27; + bold(ok(&#x27;OK: &#x27;)) + assertions.length +
-                    &#x27; assertions (&#x27; + assertions.duration + &#x27;ms)&#x27;
+                    '\n' + bold(ok('OK: ')) + assertions.length +
+                    ' assertions (' + assertions.duration + 'ms)'
                 );
             }
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         }
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -6084,7 +6077,7 @@ else {
     if (!options) {
         // load default options
         var content = fs.readFileSync(
-            __dirname + &#x27;/../../bin/nodeunit.json&#x27;, &#x27;utf8&#x27;
+            __dirname + '/../../bin/nodeunit.json', 'utf8'
         );
         options = JSON.parse(content);
     }
@@ -6107,9 +6100,9 @@ else {
                         name: e.error.name,
                         message: e.error.message,
                         stack: e.error.stack.split(/\n/).filter(function (line) {
-                            // exclude line of &#x22;types.js&#x22;
+                            // exclude line of "types.js"
                             return ! RegExp(/types.js:83:39/).test(line);
-                        }).join(&#x27;\n&#x27;)
+                        }).join('\n')
                     };
                     extra.wanted = e.error.expected;
                     extra.found = e.error.actual;
@@ -6119,25 +6112,25 @@ else {
         },
         done: function (assertions) {
             tap.end();
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         }
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -6159,26 +6152,26 @@ else {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">run = function () {
     console.log(
-        &#x27;WARNING: nodeunit.testrunner is going to be deprecated, please &#x27; +
-        &#x27;use nodeunit.reporters.default instead!&#x27;
+        'WARNING: nodeunit.testrunner is going to be deprecated, please ' +
+        'use nodeunit.reporters.default instead!'
     );
-    return reporters[&#x27;default&#x27;].run.apply(this, arguments);
+    return reporters['default'].run.apply(this, arguments);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -6219,7 +6212,7 @@ else {
         }
     };
 
-    process.on(&#x27;exit&#x27;, function() {
+    process.on('exit', function() {
         on_exit = on_exit || exports.default_on_exit;
         on_exit(tracker);
     });
@@ -6230,18 +6223,18 @@ else {
 var assertion_message = function (str) {
     return options.assertion_prefix + str + options.assertion_suffix;
 };
-var pass_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u221A&#x27; : &#x27;✔&#x27;;
-var fail_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u00D7&#x27; : &#x27;✖&#x27;;
+var pass_indicator = process.platform === 'win32' ? '\u221A' : 'âœ”';
+var fail_indicator = process.platform === 'win32' ? '\u00D7' : 'âœ–';
 
 var start = new Date().getTime();
 var tracker = track.<span class="apidocCodeKeywordSpan">createTracker</span>(function (tracker) {
     if (tracker.unfinished()) {
-        console.log(&#x27;&#x27;);
+        console.log('');
         console.log(error(bold(
-            &#x27;FAILURES: Undone tests (or their setups/teardowns): &#x27;
+            'FAILURES: Undone tests (or their setups/teardowns): '
         )));
         var names = tracker.names();
-        for (var i = 0; i &#x3c; names.length; i += 1) {
+        for (var i = 0; i &lt; names.length; i += 1) {
 ...</pre></li>
     </ul>
 
@@ -6256,10 +6249,10 @@ var tracker = track.<span class="apidocCodeKeywordSpan">createTracker</span>(fun
     <ul>
     <li>description and source-code<pre class="apidocCodePre">default_on_exit = function (tracker) {
     if (tracker.unfinished()) {
-        console.log(&#x27;&#x27;);
-        console.log(&#x27;Undone tests (or their setups/teardowns): &#x27;);
+        console.log('');
+        console.log('Undone tests (or their setups/teardowns): ');
         var names = tracker.names();
-        for (var i = 0; i &#x3c; names.length; i += 1) {
+        for (var i = 0; i &lt; names.length; i += 1) {
             console.log(names[i]);
         }
         process.reallyExit(tracker.unfinished());
@@ -6284,8 +6277,8 @@ var tracker = track.<span class="apidocCodeKeywordSpan">createTracker</span>(fun
     <ul>
     <li>description and source-code<pre class="apidocCodePre">assertion = function (obj) {
     return {
-        method: obj.method || &#x27;&#x27;,
-        message: obj.message || (obj.error &#x26;&#x26; obj.error.message) || &#x27;&#x27;,
+        method: obj.method || '',
+        message: obj.message || (obj.error &amp;&amp; obj.error.message) || '',
         error: obj.error,
         passed: function () {
             return !this.error;
@@ -6301,7 +6294,7 @@ var done = test.done;
 test.done = function (err) {
     try {
         tearDown.call(context, function (err2) {
-            if (err &#x26;&#x26; err2) {
+            if (err &amp;&amp; err2) {
                 test._assertion_list.push(
                     types.<span class="apidocCodeKeywordSpan">assertion</span>({error: err})
                 );
@@ -6327,7 +6320,7 @@ test.done = function (err) {
     var that = arr || [];
     that.failures = function () {
         var failures = 0;
-        for (var i = 0; i &#x3c; this.length; i += 1) {
+        for (var i = 0; i &lt; this.length; i += 1) {
             if (this[i].failed()) {
                 failures += 1;
             }
@@ -6373,14 +6366,14 @@ test.done = function (err) {
         opt[name] = opt[name] || function () {};
     };
 
-    optionalCallback(&#x27;moduleStart&#x27;);
-    optionalCallback(&#x27;moduleDone&#x27;);
-    optionalCallback(&#x27;testStart&#x27;);
-    optionalCallback(&#x27;testReady&#x27;);
-    optionalCallback(&#x27;testDone&#x27;);
-    //optionalCallback(&#x27;log&#x27;);
+    optionalCallback('moduleStart');
+    optionalCallback('moduleDone');
+    optionalCallback('testStart');
+    optionalCallback('testReady');
+    optionalCallback('testDone');
+    //optionalCallback('log');
 
-    // &#x27;done&#x27; callback is not optional.
+    // 'done' callback is not optional.
 
     return opt;
 }</pre></li>
@@ -6427,12 +6420,12 @@ try {
 
     var test = {
         done: function (err) {
-            if (expecting !== undefined &#x26;&#x26; expecting !== a_list.length) {
+            if (expecting !== undefined &amp;&amp; expecting !== a_list.length) {
                 var e = new Error(
-                    &#x27;Expected &#x27; + expecting + &#x27; assertions, &#x27; +
-                    a_list.length + &#x27; ran&#x27;
+                    'Expected ' + expecting + ' assertions, ' +
+                    a_list.length + ' ran'
                 );
-                var a1 = exports.assertion({method: &#x27;expect&#x27;, error: e});
+                var a1 = exports.assertion({method: 'expect', error: e});
                 a_list.push(a1);
                 if (options.log) {
                     async.nextTick(function () {
@@ -6456,9 +6449,9 @@ try {
                 callback(null, a_list);
             });
         },
-        ok: wrapAssert(&#x27;ok&#x27;, &#x27;ok&#x27;, 2),
-        same: wrapAssert(&#x27;same&#x27;, &#x27;deepEqual&#x27;, 3),
-        equals: wrapAssert(&#x27;equals&#x27;, &#x27;equal&#x27;, 3),
+        ok: wrapAssert('ok', 'ok', 2),
+        same: wrapAssert('same', 'deepEqual', 3),
+        equals: wrapAssert('equals', 'equal', 3),
         expect: function (num) {
             expecting = num;
         },
@@ -6481,12 +6474,12 @@ try {
 
     escapable.lastIndex = 0;
     return escapable.<span class="apidocCodeKeywordSpan">test</span>(string) ?
-        &#x27;&#x22;&#x27; + string.replace(escapable, function (a) {
+        '"' + string.replace(escapable, function (a) {
             var c = meta[a];
-            return typeof c === &#x27;string&#x27; ? c :
-                &#x27;\\u&#x27; + (&#x27;0000&#x27; + a.charCodeAt(0).toString(16)).slice(-4);
-        }) + &#x27;&#x22;&#x27; :
-        &#x27;&#x22;&#x27; + string + &#x27;&#x22;&#x27;;
+            return typeof c === 'string' ? c :
+                '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+        }) + '"' :
+        '"' + string + '"';
 }
 ...</pre></li>
     </ul>
@@ -6511,41 +6504,41 @@ try {
     }
     var e = assertion.error;
 
-    if (typeof e.actual !== &#x27;undefined&#x27; &#x26;&#x26; typeof e.expected !== &#x27;undefined&#x27;) {
-        var actual = util.inspect(e.actual, false, 10).replace(/\n$/, &#x27;&#x27;);
-        var expected = util.inspect(e.expected, false, 10).replace(/\n$/, &#x27;&#x27;);
+    if (typeof e.actual !== 'undefined' &amp;&amp; typeof e.expected !== 'undefined') {
+        var actual = util.inspect(e.actual, false, 10).replace(/\n$/, '');
+        var expected = util.inspect(e.expected, false, 10).replace(/\n$/, '');
 
         var multiline = (
-            actual.indexOf(&#x27;\n&#x27;) !== -1 ||
-            expected.indexOf(&#x27;\n&#x27;) !== -1
+            actual.indexOf('\n') !== -1 ||
+            expected.indexOf('\n') !== -1
         );
-        var spacing = (multiline ? &#x27;\n&#x27; : &#x27; &#x27;);
+        var spacing = (multiline ? '\n' : ' ');
         e._message = e.message;
         e.stack = (
-            e.name + &#x27;:&#x27; + spacing +
+            e.name + ':' + spacing +
             actual + spacing + e.operator + spacing +
-            expected + &#x27;\n&#x27; +
-            e.stack.split(&#x27;\n&#x27;).slice(1).join(&#x27;\n&#x27;)
+            expected + '\n' +
+            e.stack.split('\n').slice(1).join('\n')
         );
     }
     return assertion;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 if (!assertions.failures()) {
-    console.log(pass_indicator + &#x27; &#x27; + name);
+    console.log(pass_indicator + ' ' + name);
 }
 else {
-    console.log(error(fail_indicator + &#x27; &#x27; + name) + &#x27;\n&#x27;);
+    console.log(error(fail_indicator + ' ' + name) + '\n');
     assertions.forEach(function (a) {
         if (a.failed()) {
             a = utils.<span class="apidocCodeKeywordSpan">betterErrors</span>(a);
-            if (a.error instanceof AssertionError &#x26;&#x26; a.message) {
+            if (a.error instanceof AssertionError &amp;&amp; a.message) {
                 console.log(
-                    &#x27;Assertion Message: &#x27; +
+                    'Assertion Message: ' +
                     assertion_message(a.message)
                 );
             }
-            console.log(a.error.stack + &#x27;\n&#x27;);
+            console.log(a.error.stack + '\n');
 ...</pre></li>
     </ul>
 
@@ -6559,7 +6552,7 @@ else {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">httputil = function (cgi, envReady) {
-    var hostname = process.env.HOSTNAME || &#x27;localhost&#x27;;
+    var hostname = process.env.HOSTNAME || 'localhost';
     var port = process.env.PORT || 3000;
 
     var server = http.createServer(cgi);
@@ -6577,17 +6570,17 @@ else {
                 headers: headers
             });
             request.end();
-            request.on(&#x27;response&#x27;, function (response) {
-                response.setEncoding(&#x27;utf8&#x27;);
-                response.on(&#x27;data&#x27;, function (chunk) {
+            request.on('response', function (response) {
+                response.setEncoding('utf8');
+                response.on('data', function (chunk) {
                     if (response.body) {
                         response.body += chunk;
                     } else {
                         response.body = chunk;
                     }
                 });
-                response.on(&#x27;end&#x27;, function () {
-                    if (response.headers[&#x27;content-type&#x27;] === &#x27;application/json&#x27;) {
+                response.on('end', function () {
+                    if (response.headers['content-type'] === 'application/json') {
                         response.bodyAsObject = JSON.parse(response.body);
                     }
                     respReady(response);
@@ -6597,7 +6590,7 @@ else {
     };
 
     process.nextTick(function () {
-        if (envReady &#x26;&#x26; typeof envReady === &#x27;function&#x27;) {
+        if (envReady &amp;&amp; typeof envReady === 'function') {
             envReady(server, client);
         }
     });
@@ -6638,8 +6631,8 @@ else {
                     // remove extension from module name and prepend the
                     // directory path
                     var fullpaths = modules.map(function (filename) {
-                        var mod_name = filename.replace(extensionPattern, &#x27;&#x27;);
-                        return [p, mod_name].join(&#x27;/&#x27;);
+                        var mod_name = filename.replace(extensionPattern, '');
+                        return [p, mod_name].join('/');
                     });
 
                     if (recursive) {
@@ -6710,8 +6703,8 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
         files = [files];
     }
     source = files.map(function (file) {
-        return fs.readFileSync(file, &#x27;utf8&#x27;);
-    }).join(&#x27;&#x27;);
+        return fs.readFileSync(file, 'utf8');
+    }).join('');
 
     if (!sandbox) {
         sandbox = {};
@@ -6742,7 +6735,7 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
     if (!options) {
         // load default options
         var content = fs.readFileSync(
-            __dirname + &#x27;/../../bin/nodeunit.json&#x27;, &#x27;utf8&#x27;
+            __dirname + '/../../bin/nodeunit.json', 'utf8'
         );
         options = JSON.parse(content);
     }
@@ -6759,8 +6752,8 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
     var assertion_message = function (str) {
         return options.assertion_prefix + str + options.assertion_suffix;
     };
-    var pass_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u221A&#x27; : &#x27;✔&#x27;;
-    var fail_indicator = process.platform === &#x27;win32&#x27; ? &#x27;\u00D7&#x27; : &#x27;✖&#x27;;
+    var pass_indicator = process.platform === 'win32' ? '\u221A' : 'âœ”';
+    var fail_indicator = process.platform === 'win32' ? '\u00D7' : 'âœ–';
 
     var start = new Date().getTime();
     var paths = files.map(function (p) {
@@ -6768,16 +6761,16 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
     });
     var tracker = track.createTracker(function (tracker) {
         if (tracker.unfinished()) {
-            console.log(&#x27;&#x27;);
+            console.log('');
             console.log(error(bold(
-                &#x27;FAILURES: Undone tests (or their setups/teardowns): &#x27;
+                'FAILURES: Undone tests (or their setups/teardowns): '
             )));
             var names = tracker.names();
-            for (var i = 0; i &#x3c; names.length; i += 1) {
-                console.log(&#x27;- &#x27; + names[i]);
+            for (var i = 0; i &lt; names.length; i += 1) {
+                console.log('- ' + names[i]);
             }
-            console.log(&#x27;&#x27;);
-            console.log(&#x27;To fix this, make sure all tests call test.done()&#x27;);
+            console.log('');
+            console.log('To fix this, make sure all tests call test.done()');
             process.reallyExit(tracker.unfinished());
         }
     });
@@ -6786,26 +6779,26 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
         testspec: options.testspec,
         testFullSpec: options.testFullSpec,
         moduleStart: function (name) {
-            console.log(&#x27;\n&#x27; + bold(name));
+            console.log('\n' + bold(name));
         },
         testDone: function (name, assertions) {
             tracker.remove(name);
 
             if (!assertions.failures()) {
-                console.log(pass_indicator + &#x27; &#x27; + name);
+                console.log(pass_indicator + ' ' + name);
             }
             else {
-                console.log(error(fail_indicator + &#x27; &#x27; + name));
+                console.log(error(fail_indicator + ' ' + name));
             }
             // verbose so print everything
             assertions.forEach(function (a) {
               if (a.failed()) {
-                console.log(error(&#x27;  &#x27; + fail_indicator + &#x27; &#x27; + a.message));
+                console.log(error('  ' + fail_indicator + ' ' + a.message));
                 a = utils.betterErrors(a);
-                console.log(&#x27;  &#x27; + a.error.stack);
+                console.log('  ' + a.error.stack);
               }
               else {
-                console.log(&#x27;  &#x27; + pass_indicator + &#x27; &#x27; + a.message);
+                console.log('  ' + pass_indicator + ' ' + a.message);
               }
             });
         },
@@ -6814,19 +6807,19 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
             var duration = end - start;
             if (assertions.failures()) {
                 console.log(
-                    &#x27;\n&#x27; + bold(error(&#x27;FAILURES: &#x27;)) + assertions.failures() +
-                    &#x27;/&#x27; + assertions.length + &#x27; assertions failed (&#x27; +
-                    assertions.duration + &#x27;ms)&#x27;
+                    '\n' + bold(error('FAILURES: ')) + assertions.failures() +
+                    '/' + assertions.length + ' assertions failed (' +
+                    assertions.duration + 'ms)'
                 );
             }
             else {
                 console.log(
-                   &#x27;\n&#x27; + bold(ok(&#x27;OK: &#x27;)) + assertions.length +
-                   &#x27; assertions (&#x27; + assertions.duration + &#x27;ms)&#x27;
+                   '\n' + bold(ok('OK: ')) + assertions.length +
+                   ' assertions (' + assertions.duration + 'ms)'
                 );
             }
 
-            if (callback) callback(assertions.failures() ? new Error(&#x27;We have got test failures.&#x27;) : undefined);
+            if (callback) callback(assertions.failures() ? new Error('We have got test failures.') : undefined);
         },
         testStart: function(name) {
             tracker.put(name);
@@ -6834,20 +6827,20 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    &#x3c;script src=&#x22;nodeunit.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite1.js&#x22;&#x3e;&#x3c;/script&#x3e;
-    &#x3c;script src=&#x22;suite2.js&#x22;&#x3e;&#x3c;/script&#x3e;
-  &#x3c;/head&#x3e;
-  &#x3c;body&#x3e;
-    &#x3c;h1 id=&#x22;nodeunit-header&#x22;&#x3e;Example Test Suite&#x3c;/h1&#x3e;
-    &#x3c;script&#x3e;
+    &lt;script src="nodeunit.js"&gt;&lt;/script&gt;
+    &lt;script src="suite1.js"&gt;&lt;/script&gt;
+    &lt;script src="suite2.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id="nodeunit-header"&gt;Example Test Suite&lt;/h1&gt;
+    &lt;script&gt;
       nodeunit.<span class="apidocCodeKeywordSpan">run</span>({
-        &#x27;Suite One&#x27;: suite1,
-        &#x27;Suite Two&#x27;: suite2
+        'Suite One': suite1,
+        'Suite Two': suite2
       });
-    &#x3c;/script&#x3e;
-  &#x3c;/body&#x3e;
-&#x3c;/html&#x3e;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ...</pre></li>
     </ul>
 
@@ -6862,3 +6855,4 @@ utils.<span class="apidocCodeKeywordSpan">modulePaths</span>(paths, function (er
     ]
 </div>
 </div>
+</body></html>
